@@ -35,7 +35,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="inicio" class="nav-link active">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Inicio
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="usuarios" class="nav-link">
                         <i class="nav-icon fas fa-user-tag"></i>
                         <p>
                             Usuarios
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="categorias" class="nav-link">
                         <i class="nav-icon fas fa-tags"></i>
                         <p>
                             Categorías
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="productos" class="nav-link">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             Productos
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="clientes" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Clientes
@@ -84,7 +84,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="ventas" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Administrar Ventas
@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="crear-venta" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Crear Venta
@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="reportes" class="nav-link">
                                 <i class="fas fa-chart-line nav-icon"></i>
                                 <p>
                                     Reporte de Ventas

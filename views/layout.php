@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Point of Sale | Blank Page</title>
+  <title>Point of Sale</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,21 +15,33 @@
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-    <?php
-        // <!-- Navbar -->
-        include "modulos/Navbar.php";
-        // <!-- /.navbar -->
+  <?php
+    // <!-- Navbar -->
+    include "modulos/Navbar.php";
+    // <!-- /.navbar -->
 
-        // <!-- Main Sidebar Container -->
-        include "modulos/Sidebar.php";
+    // <!-- Main Sidebar Container -->
+    include "modulos/Sidebar.php";
 
-        // <!-- Content Wrapper. Contains page content -->
-        include "modulos/Content.php";
-        // <!-- /.content-wrapper -->
+    // <!-- Content Wrapper. Contains page content -->
+    if(isset($_GET["ruta"])){
+      if($_GET["ruta"] == "inicio" ||
+        $_GET["ruta"] == "usuarios" ||
+        $_GET["ruta"] == "categorias" ||
+        $_GET["ruta"] == "productos" ||
+        $_GET["ruta"] == "clientes" ||
+        $_GET["ruta"] == "ventas" ||
+        $_GET["ruta"] == "crear-venta" ||
+        $_GET["ruta"] == "reportes"){
 
-        // Footer
-        include "modulos/Footer.php";
-    ?>
+        include "modulos/".$_GET["ruta"].".php";
+      }
+    }
+    // <!-- /.content-wrapper -->
+
+    // Footer
+    include "modulos/Footer.php";
+  ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
