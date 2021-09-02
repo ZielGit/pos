@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Point of Sale</title>
 
+  <link rel="icon" href="views/dist/img/AdminLTELogo.png">
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -35,7 +37,11 @@
         $_GET["ruta"] == "reportes"){
 
         include "modulos/".$_GET["ruta"].".php";
+      }else{
+        include "modulos/404.php";
       }
+    }else{
+      include "modulos/inicio.php";
     }
     // <!-- /.content-wrapper -->
 
