@@ -14,10 +14,13 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="views/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
+<body class="hold-transition sidebar-mini login-page">
+
   <?php
+  if(isset($_SESSION["iniciarSesion"]) && $_SESSION["inicarSesion"] == "ok"){
+    // <!-- Site wrapper -->
+    echo'<div class="wrapper">';
+
     // <!-- Navbar -->
     include "modulos/Navbar.php";
     // <!-- /.navbar -->
@@ -47,6 +50,12 @@
 
     // Footer
     include "modulos/Footer.php";
+
+    echo '</div>';
+    // <!-- ./wrapper -->
+  }else{
+    include "modulos/login.php";
+  }
   ?>
 
   <!-- Control Sidebar -->
@@ -54,8 +63,6 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
 
 <!-- jQuery -->
 <script src="views/plugins/jquery/jquery.min.js"></script>
