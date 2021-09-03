@@ -17,7 +17,8 @@ session_start();
   <!-- Font Awesome -->
   <link rel="stylesheet" href="views/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="views/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="views/dist/css/adminlte.css">
+  
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -42,7 +43,8 @@ session_start();
         $_GET["ruta"] == "clientes" ||
         $_GET["ruta"] == "ventas" ||
         $_GET["ruta"] == "crear-venta" ||
-        $_GET["ruta"] == "reportes"){
+        $_GET["ruta"] == "reportes" ||
+        $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";
       }else{
