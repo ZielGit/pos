@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +19,10 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="views/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition sidebar-mini login-page">
+<body class="hold-transition sidebar-mini">
 
   <?php
-  if(isset($_SESSION["iniciarSesion"]) && $_SESSION["inicarSesion"] == "ok"){
+  if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
     // <!-- Site wrapper -->
     echo'<div class="wrapper">';
 
