@@ -72,17 +72,57 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Default Modal</h4>
+        <h4 class="modal-title">Agregar Usuario</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>One fine body&hellip;</p>
+        <form action="" role="form" method="post" enctype="multipart/form-data">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control input-log" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-key"></i></span>
+            </div>
+            <input type="text" class="form-control input-log" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+            </div>
+            <input type="password" class="form-control input-log" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-users"></i></span>
+            </div>
+            <select class="form-control input-lg" name="nuevoPerfil" id="">
+              <option value="">Selecionar Perfil</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Especial">Especial</option>
+              <option value="Vendedor">Vendedor</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div class="panel">Subir Foto</div>
+            <input type="file" name="nuevaFoto" id="nuevaFoto">
+            <p class="help-block">Peso máximo de la foto 200MB</p>
+            <img class="img-thumbnail" src="views/dist/img/avatar5.png" alt="" width="100px">
+          </div>
+        </form>
       </div>
       <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+        <button type="submit" class="btn btn-primary">Guardar Usuario</button>
       </div>
     </div>
     <!-- /.modal-content -->
