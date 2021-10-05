@@ -9,5 +9,7 @@ class User{
         $stmt->bindParam(":".$item, $valor, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt-> fetch();
+        $stmt->close();
+        $stmt = null;
     }
 }

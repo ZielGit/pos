@@ -2,7 +2,7 @@
 
 class UserController{
 
-    public function ctrIngresoUsuario(){
+    static public function ctrIngresoUsuario(){
         if(isset($_POST["Email"])){
             if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["Email"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["Password"])){
                 $tabla = "usuarios";

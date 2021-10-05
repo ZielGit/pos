@@ -2,7 +2,7 @@
 
 class ControllerLayout{
 
-    public function ctrLayout(){
+    static public function ctrLayout(){
         include "views/layout.php";
     }
 }
