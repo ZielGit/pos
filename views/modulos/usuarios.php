@@ -71,14 +71,14 @@
 <div class="modal fade" id="modalAgregarUsuario">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Agregar Usuario</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="" role="form" method="post" enctype="multipart/form-data">
+      <form action="" role="form" method="post" enctype="multipart/form-data">
+        <div class="modal-header">
+          <h4 class="modal-title">Agregar Usuario</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -118,12 +118,16 @@
             <p class="help-block">Peso máximo de la foto 200MB</p>
             <img class="img-thumbnail" src="views/dist/img/avatar5.png" alt="" width="100px">
           </div>
-        </form>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar Usuario</button>
-      </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary">Guardar Usuario</button>
+        </div>
+        <?php
+          $crearUsuario = new UserController();
+          $crearUsuario->CrearUsuario();
+        ?>
+      </form>
     </div>
     <!-- /.modal-content -->
   </div>

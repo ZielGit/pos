@@ -20,6 +20,9 @@ session_start();
   <link rel="stylesheet" href="views/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="views/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="views/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Sweet Alert 2 -->
+  <!-- Se agrego al head para que se ejecute primero el script luego recien el codigo -->
+  <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="views/dist/css/adminlte.css">
   
@@ -92,6 +95,7 @@ session_start();
 <script src="views/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="views/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="views/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 <!-- Mis Script -->
 <script src="views/dist/js/script.js"></script>
 <!-- AdminLTE App -->
