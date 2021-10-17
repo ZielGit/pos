@@ -98,6 +98,7 @@ session_start();
 
 <!-- Mis Script -->
 <script src="views/dist/js/script.js"></script>
+<script src="views/js/usuarios.js"></script>
 <!-- AdminLTE App -->
 <script src="views/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

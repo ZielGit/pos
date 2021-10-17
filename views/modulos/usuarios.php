@@ -31,7 +31,7 @@
           <table id="datatable" class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th style="width: 10px;">#</th>
                 <th>Nombre</th>
                 <th>Usuario</th>
                 <th>Foto</th>
@@ -114,9 +114,9 @@
 
           <div class="form-group">
             <div class="panel">Subir Foto</div>
-            <input type="file" name="nuevaFoto" id="nuevaFoto">
+            <input type="file" class="nuevaFoto" name="nuevaFoto">
             <p class="help-block">Peso máximo de la foto 200MB</p>
-            <img class="img-thumbnail" src="views/dist/img/avatar5.png" alt="" width="100px">
+            <img class="img-thumbnail previsualizar" src="views/dist/img/avatar5.png" alt="" width="100px">
           </div>
         </div>
         <div class="modal-footer justify-content-between">
