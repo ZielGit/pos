@@ -16,6 +16,11 @@ class UserController{
 
                 if($respuesta["usuario"] == $_POST["Email"] && $respuesta["password"] == $encriptar){
                     $_SESSION["iniciarSesion"] = "ok";
+                    $_SESSION["id"] = $respuesta["id"];
+                    $_SESSION["nombre"] = $respuesta["nombre"];
+                    $_SESSION["usuario"] = $respuesta["usuario"];
+                    $_SESSION["foto"] = $respuesta["foto"];
+                    $_SESSION["perfil"] = $respuesta["perfil"];
                     echo '<script>window.location = "inicio";</script>';
                 }else{
                     echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
