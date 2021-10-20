@@ -67,19 +67,6 @@
                         </tr>';
                 }
               ?>
-              <!-- <tr>
-                <td>1</td>
-                <td>Usuario Administrador</td>
-                <td>admin</td>
-                <td><img src="views/dist/img/avatar5.png" class="img-thumbnail" width="40px"></td>
-                <td>Administrador</td>
-                <td><button class="btn btn-success btn-xs">Activado</button></td>
-                <td>2017-12-11 12:05:32</td>
-                <td>
-                    <button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                </td>
-              </tr> -->
             </tbody>
           </table>
 
