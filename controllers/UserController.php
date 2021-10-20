@@ -102,4 +102,10 @@ class UserController{
 			}
         }
     }
+
+    static public function MostrarUsuario($item, $valor){
+        $tabla = "usuarios";
+        $respuesta = User::mdlMostrarUsuarios($tabla, $item, $valor);
+        return $respuesta;
+    }
 }

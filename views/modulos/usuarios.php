@@ -42,7 +42,32 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <?php 
+                $item = null;
+                $valor = null;
+                $usuarios = UserController::MostrarUsuario($item, $valor);
+
+                foreach ($usuarios as $key => $value) {
+                  echo '<tr>
+                          <td>1</td>
+                          <td>'.$value["nombre"].'</td>
+                          <td>'.$value["usuario"].'</td>';
+                          if ($value["foto"] != "") {
+                            echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+                          } else {
+                            echo '<td><img src="views/dist/img/avatar5.png" class="img-thumbnail" width="40px"></td>';
+                          }
+                          echo '<td>'.$value["perfil"].'</td>
+                          <td><button class="btn btn-success btn-xs">Activado</button></td>
+                          <td>'.$value["ultimo_login"].'</td>
+                          <td>
+                              <button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                          </td>
+                        </tr>';
+                }
+              ?>
+              <!-- <tr>
                 <td>1</td>
                 <td>Usuario Administrador</td>
                 <td>admin</td>
@@ -54,7 +79,7 @@
                     <button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                     <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
 
