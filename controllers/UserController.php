@@ -108,4 +108,100 @@ class UserController{
         $respuesta = User::mdlMostrarUsuarios($tabla, $item, $valor);
         return $respuesta;
     }
+
+    // Editar Usuario
+    static public function EditarUsuario(){
+        if (isset($_POST["editarUsuario"])) {
+            if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombre"])) {
+                // validar imagen
+                $ruta = $_POST["fotoActual"];
+                if (isset($_FILES["editarFoto"]["tmp_name"]) && !empty($_FILES["editarFoto"]["tmp_name"])){
+                    list($ancho, $alto) = getimagesize($_FILES["editarFoto"]["tmp_name"]);
+                    $nuevoAncho = 500;
+					$nuevoAlto = 500;
+                    // Crear el directorio
+                    $directorio = "views/img/users/".$_POST["editarUsuario"];
+                    // Validar si existe una foto
+                    if (!empty($_POST["fotoActual"])) {
+                        unlink($_POST["fotoActual"]);
+                    }else {
+                        mkdir($directorio, 0755);
+                    }
+                    // De acuerdo al tipo de imagen aplicamos las funciones por defecto de php
+                    if($_FILES["editarFoto"]["type"] == "image/jpeg"){
+                        // Guardamos la imagen en el directorio
+                        $aleatorio = mt_rand(100,999);
+						$ruta = "views/img/users/".$_POST["editarUsuario"]."/".$aleatorio.".jpg";
+						$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);						
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+						imagejpeg($destino, $ruta);
+                    }
+
+                    if($_FILES["editarFoto"]["type"] == "image/png"){
+                        // Guardamos la imagen en el directorio
+                        $aleatorio = mt_rand(100,999);
+						$ruta = "views/img/users/".$_POST["editarUsuario"]."/".$aleatorio.".png";
+						$origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);						
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+						imagepng($destino, $ruta);
+                    }
+                }
+                $tabla = "usuarios";
+                if ($_POST["editarPassword"] != "") {
+                    if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])) {
+                        $encriptar = crypt($_POST["editarPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+                    } else {
+                        echo '<script>
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: "¡El usuario no puede ir vacío o llevar caracteres especiales!"
+                            }).then(function(result){
+                                if(result.value){
+                                    window.location = "usuarios";
+                                }
+                            });
+                        </script>';
+                    }
+                    
+                }else {
+                    $encriptar = $_POST["passwordActual"];
+                }
+                $datos = array("nombre" => $_POST["editarNombre"],
+                            "usuario"   => $_POST["editarUsuario"],
+                            "password"  => $encriptar,
+                            "perfil"    => $_POST["editarPerfil"],
+                            "foto"      => $ruta);
+                $respuesta = User::EditarUsuario($tabla, $datos);
+                if ($respuesta == "ok") {
+                    echo '<script>
+                        Swal.fire({
+                            icon: "success",
+                            title: "¡El usuario ha sido actualziado correctamente!",
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar"
+                        }).then(function(result){
+                            if(result.value){
+                                window.location = "usuarios";
+                            }
+                        });
+					</script>';
+                }
+            }else {
+                echo '<script>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "¡El nombre no puede ir vacío o llevar caracteres especiales!"
+                    }).then(function(result){
+						if(result.value){
+							window.location = "usuarios";
+						}
+					});
+				</script>';
+            }
+        }
+    }
 }
