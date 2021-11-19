@@ -70,7 +70,7 @@
                                 <i class="fas fa-pencil-alt"></i>
                               </button>
 
-                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                              <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
                           </td>
                         </tr>';
                 }
@@ -224,3 +224,8 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<?php
+  $borrarUsuario = new UserController();
+  $borrarUsuario->BorrarUsuario();
+?>

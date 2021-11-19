@@ -69,4 +69,19 @@ class User{
         $stmt->close();
         $stmt = null;
     }
+
+    // Borrar Usuario
+    static public function BorrarUsuario($tabla, $datos){
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+        $stmt->bindParam(":id", $datos, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
 }
