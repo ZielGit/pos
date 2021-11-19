@@ -86,3 +86,26 @@ $(".btnActivar").click(function () {
         $(this).attr('estadoUsuario', 0);
     }
 })
+
+// Revisar si el Usuario ya esta Registrado
+$("#nuevoUsuario").change(function(){
+    $(".alert").remove();
+    var usuario = $(this).val();
+    var datos = new FormData();
+    datos.append("validarUsuario", usuario);
+    $.ajax({
+        url:"ajax/usuarios.ajax.php",
+        method:"POST",
+        data: datos,
+        cache:false,
+        contentType:false,
+        processData:false,
+        dataType:"json",
+        success:function (respuesta) {
+            if (respuesta) {
+                $("#nuevoUsuario").parent().after('<div class="alert alert-warning">El usuario ya existe, ingrese otro</div>');
+                $("#nuevoUsuario").val("");
+            }
+        }
+    })
+})

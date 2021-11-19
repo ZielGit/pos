@@ -110,7 +110,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-key"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
+            <input type="text" class="form-control input-log" id="nuevoUsuario" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
           </div>
 
           <div class="input-group mb-3">
