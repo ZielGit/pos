@@ -117,10 +117,10 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar Categoria</button>
         </div>
-        <!-- <?php
-          $crearUsuario = new UserController();
-          $crearUsuario->CrearUsuario();
-        ?> -->
+        <?php
+          $crearCategoria = new CategoryController();
+          $crearCategoria->CrearCategoria();
+        ?>
       </form>
     </div>
     <!-- /.modal-content -->
