@@ -38,4 +38,11 @@ class CategoryController{
             }
         }
     }
+
+    // Mostrar Categorias
+    static public function MostrarCategorias($item, $valor){
+        $tabla = "categorias";
+        $respuesta = Category::MostrarCategorias($tabla, $item, $valor);
+        return $respuesta;
+    }
 }
