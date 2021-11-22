@@ -120,9 +120,10 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-user"></i></span>
+              <span class="input-group-text"><i class="fa fa-tags"></i></span>
             </div>
             <input type="text" class="form-control input-log" id="editarCategoria" name="editarCategoria" value="" required>
+            <input type="hidden" id="idCategoria" name="idCategoria">
           </div>
 
         </div>
@@ -130,10 +131,10 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Editar Categoría</button>
         </div>
-        <!-- <?php
-          $editarUsuario = new UserController();
-          $editarUsuario->EditarUsuario();
-        ?> -->
+        <?php
+          $editarCategoria = new CategoryController();
+          $editarCategoria->EditarCategoria();
+        ?>
       </form>
     </div>
     <!-- /.modal-content -->
