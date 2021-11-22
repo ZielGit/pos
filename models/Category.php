@@ -51,4 +51,19 @@ class Category{
         $stmt->close();
         $stmt = null;
     }
+
+    // Borrar Categoría
+    static public function BorrarCategoria($tabla, $datos){
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+        $stmt->bindParam(":id", $datos, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
 }

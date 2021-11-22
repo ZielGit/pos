@@ -142,3 +142,8 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.Modal Editar Categoria -->
+
+<?php
+  $borrarCategoria = new CategoryController();
+  $borrarCategoria->BorrarCategoria();
+?>

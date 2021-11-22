@@ -82,4 +82,27 @@ class CategoryController{
             }
         }
     }
+
+    // Borrar Categoría
+    static public function BorrarCategoria(){
+        if (isset($_GET["idCategoria"])) {
+            $tabla = "categorias";
+            $datos = $_GET["idCategoria"];
+            $respuesta = Category::BorrarCategoria($tabla, $datos);
+            if ($respuesta == "ok") {
+                echo '<script>
+                        Swal.fire({
+                            icon: "success",
+                            title: "¡La Categoría ha sido borrado correctamente!",
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar"
+                        }).then(function(result){
+                            if(result.value){
+                                window.location = "categorias";
+                            }
+                        });
+					</script>';
+            }
+        }
+    }
 }
