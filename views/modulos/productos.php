@@ -22,28 +22,167 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
+            Agregar Productos
+          </button>
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+
+          <table id="datatable" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width: 10px;">#</th>
+                <th>Imagen</th>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Stock</th>
+                <th>Precio de Compra</th>
+                <th>Precio de Venta</th>
+                <th>Agregado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <?php 
+                $item = null;
+                $valor = null;
+                $categorias = CategoryController::MostrarCategorias($item, $valor);
+
+                foreach ($categorias as $key => $value) {
+                  echo '<tr>
+                          <td>'.$value["id"].'</td>
+                          <td>'.$value["categoria"].'</td>
+                          <td>
+                              <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria">
+                                <i class="fas fa-pencil-alt"></i>
+                              </button>
+
+                              <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                          </td>
+                        </tr>';
+                }
+              ?> -->
+            </tbody>
+          </table>
+
         </div>
         <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
       </div>
       <!-- /.card -->
 
     </section>
     <!-- /.content -->
 </div>
+
+<!-- Modal Agregar Producto -->
+<div class="modal fade" id="modalAgregarProducto">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="" role="form" method="post">
+        <div class="modal-header">
+          <h4 class="modal-title">Agregar Producto</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-code"></i></span>
+            </div>
+            <input type="text" class="form-control input-log" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código" required>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-product-hunt"></i></span>
+            </div>
+            <input type="text" class="form-control input-log" id="nuevaDescripcion" name="nuevaDescripcion" placeholder="Ingresar Descripción" required>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-th"></i></span>
+            </div>
+            <select class="form-control input-lg" name="nuevaCategoria" id="">
+              <option value="">Selecionar Categoria</option>
+              <!-- <option value="Administrador">Administrador</option>
+              <option value="Especial">Especial</option>
+              <option value="Vendedor">Vendedor</option> -->
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-check"></i></span>
+            </div>
+            <input type="number" class="form-control input-log" name="nuevoStock" min="0" placeholder="Ingresar Stock" required>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-arrow-up"></i></span>
+                </div>
+                <input type="number" class="form-control input-log" name="nuevoPrecioCompra" min="0" placeholder="Precio Compra" required>
+              </div>
+            </div>
+          
+            <div class="col-lg-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-arrow-down"></i></span>
+                </div>
+                <input type="number" class="form-control input-log" name="nuevoPrecioVenta" min="0" placeholder="Precio Venta" required>
+              </div>
+              <br>
+
+              <div class="input-group">
+                <!-- Checkbox Porcentaje -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">
+                      <input type="checkbox" class="minimal porcentaje" checked>
+                      Utilizar porcentaje
+                    </label>
+                  </div>
+                </div>
+                <!-- Entrada Porcentaje -->
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-percent"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="panel">Subir Imagen</div>
+            <input type="file" class="nuevaImagen" name="nuevaImagen">
+            <p class="help-block">Peso máximo de la foto 200MB</p>
+            <img class="img-thumbnail previsualizar" src="views/dist/img/avatar5.png" alt="" width="100px">
+          </div>
+
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary">Guardar Producto</button>
+        </div>
+        <!-- <?php
+          $crearCategoria = new CategoryController();
+          $crearCategoria->CrearCategoria();
+        ?> -->
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.Modal Agregar Producto -->
