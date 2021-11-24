@@ -44,25 +44,35 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <?php 
+              <?php 
                 $item = null;
                 $valor = null;
-                $categorias = CategoryController::MostrarCategorias($item, $valor);
+                $productos = ProductController::MostrarProductos($item, $valor);
 
-                foreach ($categorias as $key => $value) {
+                foreach ($productos as $key => $value) {
                   echo '<tr>
                           <td>'.$value["id"].'</td>
-                          <td>'.$value["categoria"].'</td>
+                          <td><img src="#" class="img-thumbnail" width="40px"></td>
+                          <td>'.$value["codigo"].'</td>
+                          <td>'.$value["descripcion"].'</td>';
+                          $item = "id";
+                          $valor = $value["id_categoria"];
+                          $categoria = CategoryController::MostrarCategorias($item, $valor);
+                          echo '<td>'.$categoria["categoria"].'</td>
+                          <td>'.$value["stock"].'</td>
+                          <td>'.$value["precio_compra"].'</td>
+                          <td>'.$value["precio_venta"].'</td>
+                          <td>'.$value["fecha"].'</td>
                           <td>
-                              <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria">
+                              <button class="btn btn-warning btnEditarProducto" idProducto="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarProducto">
                                 <i class="fas fa-pencil-alt"></i>
                               </button>
 
-                              <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                              <button class="btn btn-danger btnEliminarProducto" idProducto="'.$value["id"].'"><i class="fa fa-times"></i></button>
                           </td>
                         </tr>';
                 }
-              ?> -->
+              ?>
             </tbody>
           </table>
 
