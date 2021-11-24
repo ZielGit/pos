@@ -144,10 +144,12 @@
                 <!-- Checkbox Porcentaje -->
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="">
-                      <input type="checkbox" class="minimal porcentaje" checked>
-                      Utilizar porcentaje
-                    </label>
+                    <div class="icheck-primary d-inline">
+                      <input type="checkbox" id="icheck">
+                      <label for="icheck">
+                        Utilizar porcentaje
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <!-- Entrada Porcentaje -->
