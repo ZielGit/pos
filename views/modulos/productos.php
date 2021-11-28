@@ -28,7 +28,7 @@
         </div>
         <div class="card-body">
 
-          <table id="datatable" class="table table-bordered table-striped">
+          <table class="table table-bordered table-striped tablaProductos">
             <thead>
               <tr>
                 <th style="width: 10px;">#</th>
@@ -43,7 +43,7 @@
                 <th>Acciones</th>
               </tr>
             </thead>
-            <tbody>
+            <!-- <tbody>
               <?php 
                 $item = null;
                 $valor = null;
@@ -52,7 +52,7 @@
                 foreach ($productos as $key => $value) {
                   echo '<tr>
                           <td>'.$value["id"].'</td>
-                          <td><img src="#" class="img-thumbnail" width="40px"></td>
+                          <td><img src="views/img/products/default/anonymous.png" class="img-thumbnail" width="40px"></td>
                           <td>'.$value["codigo"].'</td>
                           <td>'.$value["descripcion"].'</td>';
                           $item = "id";
@@ -64,16 +64,16 @@
                           <td>'.$value["precio_venta"].'</td>
                           <td>'.$value["fecha"].'</td>
                           <td>
-                              <button class="btn btn-warning btnEditarProducto" idProducto="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarProducto">
+                              <button class="btn btn-warning">
                                 <i class="fas fa-pencil-alt"></i>
                               </button>
 
-                              <button class="btn btn-danger btnEliminarProducto" idProducto="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                           </td>
                         </tr>';
                 }
               ?>
-            </tbody>
+            </tbody> -->
           </table>
 
         </div>

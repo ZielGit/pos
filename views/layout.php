@@ -19,6 +19,7 @@ session_start();
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="views/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- DataTables -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css"> -->
   <link rel="stylesheet" href="views/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="views/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="views/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
@@ -85,6 +86,8 @@ session_start();
 <!-- Bootstrap 4 -->
 <script src="views/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
+<!-- <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script> -->
 <script src="views/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="views/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="views/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
@@ -102,6 +105,7 @@ session_start();
 <script src="views/dist/js/script.js"></script>
 <script src="views/js/usuarios.js"></script>
 <script src="views/js/categorias.js"></script>
+<script src="views/js/productos.js"></script>
 <!-- AdminLTE App -->
 <script src="views/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
