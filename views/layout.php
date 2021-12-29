@@ -16,19 +16,29 @@ session_start();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="views/plugins/fontawesome-free/css/all.min.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="views/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="views/plugins/icheck-1.0.3/skins/all.css">
   <!-- DataTables -->
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css"> -->
   <link rel="stylesheet" href="views/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="views/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="views/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="views/dist/css/adminlte.css">
+
+  <!-- Plugins -->
+  <!-- jQuery -->
+  <script src="views/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="views/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="views/dist/js/adminlte.min.js"></script>
   <!-- Sweet Alert 2 -->
   <!-- Se agrego al head para que se ejecute primero el script luego recien el codigo -->
   <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-  <!-- Theme style -->
-  <link rel="stylesheet" href="views/dist/css/adminlte.css">
-  
+  <!-- iCheck -->
+  <script src="views/plugins/icheck-1.0.3/icheck.min.js"></script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -81,10 +91,6 @@ session_start();
   </aside>
   <!-- /.control-sidebar -->
 
-<!-- jQuery -->
-<script src="views/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="views/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
 <!-- <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script> -->
@@ -106,9 +112,14 @@ session_start();
 <script src="views/js/usuarios.js"></script>
 <script src="views/js/categorias.js"></script>
 <script src="views/js/productos.js"></script>
-<!-- AdminLTE App -->
-<script src="views/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="views/dist/js/demo.js"></script>
+<script>
+  $(document).ready(function(){
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue',
+      increaseArea: '20%' // optional
+    });
+	});
+</script>
 </body>
 </html>

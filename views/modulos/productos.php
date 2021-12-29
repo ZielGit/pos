@@ -86,7 +86,7 @@
 </div>
 
 <!-- Modal Agregar Producto -->
-<div class="modal fade" id="modalAgregarProducto">
+<div class="modal fade" id="modalAgregarProducto" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <form action="" role="form" method="post">
@@ -98,11 +98,29 @@
         </div>
         <div class="modal-body">
 
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-th"></i></span>
+            </div>
+            <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" required>
+              <option value="">Selecionar Categoria</option>
+              <?php
+                $item = null;
+                $valor = null;
+                $categoria = CategoryController::MostrarCategorias($item, $valor);
+
+                foreach ($categoria as $key => $value) {
+                  echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+                }
+              ?>
+            </select>
+          </div>
+
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-code"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código" required>
+            <input type="text" class="form-control input-log" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código" readonly required>
           </div>
 
           <div class="input-group mb-3">
@@ -110,18 +128,6 @@
               <span class="input-group-text"><i class="fa fa-product-hunt"></i></span>
             </div>
             <input type="text" class="form-control input-log" id="nuevaDescripcion" name="nuevaDescripcion" placeholder="Ingresar Descripción" required>
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-th"></i></span>
-            </div>
-            <select class="form-control input-lg" name="nuevaCategoria" id="">
-              <option value="">Selecionar Categoria</option>
-              <!-- <option value="Administrador">Administrador</option>
-              <option value="Especial">Especial</option>
-              <option value="Vendedor">Vendedor</option> -->
-            </select>
           </div>
 
           <div class="input-group mb-3">
@@ -137,7 +143,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-arrow-up"></i></span>
                 </div>
-                <input type="number" class="form-control input-log" name="nuevoPrecioCompra" min="0" placeholder="Precio Compra" required>
+                <input type="number" class="form-control input-log" name="nuevoPrecioCompra" id="nuevoPrecioCompra" min="0" placeholder="Precio Compra" required>
               </div>
             </div>
           
@@ -146,7 +152,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-arrow-down"></i></span>
                 </div>
-                <input type="number" class="form-control input-log" name="nuevoPrecioVenta" min="0" placeholder="Precio Venta" required>
+                <input type="number" class="form-control input-log" name="nuevoPrecioVenta" id="nuevoPrecioVenta" min="0" step="any" placeholder="Precio Venta" readonly required>
               </div>
               <br>
 
@@ -154,14 +160,13 @@
                 <!-- Checkbox Porcentaje -->
                 <div class="col-md-6">
                   <div class="form-group">
-                    <div class="icheck-primary d-inline">
-                      <input type="checkbox" id="icheck">
-                      <label for="icheck">
-                        Utilizar porcentaje
-                      </label>
-                    </div>
+                    <label>
+                      <input type="checkbox" class="porcentaje" checked>
+                      Utilizar porcentaje
+                    </label>
                   </div>
                 </div>
+                
                 <!-- Entrada Porcentaje -->
                 <div class="col-md-6">
                   <div class="input-group">
@@ -187,10 +192,10 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar Producto</button>
         </div>
-        <!-- <?php
-          $crearCategoria = new CategoryController();
-          $crearCategoria->CrearCategoria();
-        ?> -->
+        <?php
+          $crearProducto = new ProductController();
+          $crearProducto->CrearProducto();
+        ?>
       </form>
     </div>
     <!-- /.modal-content -->
