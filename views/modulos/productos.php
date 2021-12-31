@@ -89,7 +89,7 @@
 <div class="modal fade" id="modalAgregarProducto" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="" role="form" method="post">
+      <form action="" role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header">
           <h4 class="modal-title">Agregar Producto</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -100,7 +100,7 @@
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-th"></i></span>
+              <span class="input-group-text"><i class="fas fa-tags"></i></span>
             </div>
             <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" required>
               <option value="">Selecionar Categoria</option>
@@ -125,7 +125,7 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-product-hunt"></i></span>
+              <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
             </div>
             <input type="text" class="form-control input-log" id="nuevaDescripcion" name="nuevaDescripcion" placeholder="Ingresar Descripción" required>
           </div>
@@ -143,7 +143,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-arrow-up"></i></span>
                 </div>
-                <input type="number" class="form-control input-log" name="nuevoPrecioCompra" id="nuevoPrecioCompra" min="0" placeholder="Precio Compra" required>
+                <input type="number" class="form-control input-log" name="nuevoPrecioCompra" id="nuevoPrecioCompra" min="0" step="any" placeholder="Precio Compra" required>
               </div>
             </div>
           
@@ -184,7 +184,7 @@
             <div class="panel">Subir Imagen</div>
             <input type="file" class="nuevaImagen" name="nuevaImagen">
             <p class="help-block">Peso máximo de la foto 200MB</p>
-            <img class="img-thumbnail previsualizar" src="views/dist/img/avatar5.png" alt="" width="100px">
+            <img class="img-thumbnail previsualizar" src="views/img/products/default/anonymous.png" alt="" width="100px">
           </div>
 
         </div>

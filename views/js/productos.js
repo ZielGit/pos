@@ -90,3 +90,31 @@ $(".porcentaje").on("ifUnchecked",function(){
 $(".porcentaje").on("ifChecked",function(){
 	$("#nuevoPrecioVenta").prop("readonly",true);
 })
+
+// Subir imagen producto
+$(".nuevaImagen").change(function() {
+    var imagen = this.files[0];
+    // Validar formato imagen
+    if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
+        $(".nuevaImagen").val("");
+        Swal.fire({
+            icon: "error",
+            title: "Error al subir la imagen",
+            text: "¡La imagen debe ser de formato JPG o PNG!"
+        });
+    }else if (imagen["size"] > 2000000) {
+        $(".nuevaImagen").val("");
+        Swal.fire({
+            icon: "error",
+            title: "Error al subir la imagen",
+            text: "¡La imagen no debe pesar más de 2MB!"
+        });
+    }else{
+        var datosImagen = new FileReader;
+        datosImagen.readAsDataURL(imagen);
+        $(datosImagen).on("load", function (event) {
+            var rutaImagen = event.target.result;
+            $(".previsualizar").attr("src", rutaImagen);
+        })
+    }
+})
