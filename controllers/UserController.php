@@ -197,7 +197,7 @@ class UserController{
                     echo '<script>
                         Swal.fire({
                             icon: "success",
-                            title: "¡El usuario ha sido actualziado correctamente!",
+                            title: "¡El usuario ha sido actualizado correctamente!",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
                         }).then(function(result){
