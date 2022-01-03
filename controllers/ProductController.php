@@ -169,4 +169,31 @@ class ProductController{
             }
         }
     }
+
+    // Eliminar Producto
+    static public function EliminarProducto(){
+        if(isset($_GET["idProducto"])){
+            $tabla ="productos";
+			$datos = $_GET["idProducto"];
+            if($_GET["imagen"] != "" && $_GET["imagen"] != "views/img/products/default/anonymous.png"){
+				unlink($_GET["imagen"]);
+				rmdir('views/img/products/'.$_GET["codigo"]);
+			}
+            $respuesta = Product::EliminarProducto($tabla, $datos);
+            if ($respuesta == "ok") {
+                echo '<script>
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡El producto ha sido eliminado correctamente!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar"
+                    }).then(function(result){
+                        if(result.value){
+                            window.location = "productos";
+                        }
+                    });
+                </script>';
+            }
+        }
+    }
 }

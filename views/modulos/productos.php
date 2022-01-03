@@ -43,37 +43,8 @@
                 <th>Acciones</th>
               </tr>
             </thead>
-            <!-- <tbody>
-              <?php 
-                $item = null;
-                $valor = null;
-                $productos = ProductController::MostrarProductos($item, $valor);
-
-                foreach ($productos as $key => $value) {
-                  echo '<tr>
-                          <td>'.$value["id"].'</td>
-                          <td><img src="views/img/products/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                          <td>'.$value["codigo"].'</td>
-                          <td>'.$value["descripcion"].'</td>';
-                          $item = "id";
-                          $valor = $value["id_categoria"];
-                          $categoria = CategoryController::MostrarCategorias($item, $valor);
-                          echo '<td>'.$categoria["categoria"].'</td>
-                          <td>'.$value["stock"].'</td>
-                          <td>'.$value["precio_compra"].'</td>
-                          <td>'.$value["precio_venta"].'</td>
-                          <td>'.$value["fecha"].'</td>
-                          <td>
-                              <button class="btn btn-warning">
-                                <i class="fas fa-pencil-alt"></i>
-                              </button>
-
-                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                          </td>
-                        </tr>';
-                }
-              ?>
-            </tbody> -->
+            <tbody>
+            </tbody>
           </table>
 
         </div>
@@ -315,6 +286,6 @@
 <!-- Modal Editar Producto-->
 
 <?php
-  $borrarProducto = new ProductController();
-  $borrarProducto->BorrarProducto();
+  $eliminarProducto = new ProductController();
+  $eliminarProducto->EliminarProducto();
 ?>
