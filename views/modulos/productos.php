@@ -315,6 +315,6 @@
 <!-- Modal Editar Producto-->
 
 <?php
-  $borrarUsuario = new UserController();
-  $borrarUsuario->BorrarUsuario();
+  $borrarProducto = new ProductController();
+  $borrarProducto->BorrarProducto();
 ?>

@@ -97,7 +97,7 @@ class ProductController{
                 // Validar imagen
                 $ruta = $_POST["imagenActual"];   
 
-                if (isset($_FILES["editarImagen"]["tmp_name"])){
+                if (isset($_FILES["editarImagen"]["tmp_name"]) && !empty($_FILES["editarImagen"]["tmp_name"])){
                     list($ancho, $alto) = getimagesize($_FILES["editarImagen"]["tmp_name"]);
                     $nuevoAncho = 500;
 					$nuevoAlto = 500;
