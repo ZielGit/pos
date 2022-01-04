@@ -22,3 +22,22 @@ $(".btnEditarCliente").click(function(){
         }
   	})
 })
+
+// Eliminar Cliente
+$(".btnEliminarCliente").click(function(){
+    var idCliente = $(this).attr("idCliente");
+	Swal.fire({
+        title: '¿Está seguro de borrar el cliente?',
+        text: "¡Si no lo está puede cancelar la acción!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, borrar cliente!'
+    }).then((result) => {
+        if (result.value) {
+            window.location = "index.php?ruta=clientes&idCliente="+idCliente;
+        }
+    })
+})

@@ -103,4 +103,27 @@ class ClientController{
             
         }
     }
+
+    // Eliminar Cliente
+    static public function EliminarCliente(){
+        if (isset($_GET["idCliente"])) {
+            $tabla ="clientes";
+			$datos = $_GET["idCliente"];
+			$respuesta = Client::EliminarCliente($tabla, $datos);
+            if ($respuesta == "ok") {
+                echo '<script>
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡El cliente ha sido borrado correctamente!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar"
+                    }).then(function(result){
+                        if(result.value){
+                            window.location = "clientes";
+                        }
+                    });
+                </script>';
+            }
+        }
+    }
 }
