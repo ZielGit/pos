@@ -37,7 +37,6 @@ session_start();
   <!-- AdminLTE App -->
   <script src="views/dist/js/adminlte.min.js"></script>
   <!-- Sweet Alert 2 -->
-  <!-- Se agrego al head para que se ejecute primero el script luego recien el codigo -->
   <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
   <!-- iCheck -->
   <script src="views/plugins/icheck-1.0.3/icheck.min.js"></script>
@@ -51,11 +50,11 @@ session_start();
     echo'<div class="wrapper">';
 
     // <!-- Navbar -->
-    include "modulos/Navbar.php";
+    include "Navbar.php";
     // <!-- /.navbar -->
 
     // <!-- Main Sidebar Container -->
-    include "modulos/Sidebar.php";
+    include "Sidebar.php";
 
     // <!-- Content Wrapper. Contains page content -->
     if(isset($_GET["ruta"])){
@@ -69,22 +68,22 @@ session_start();
         $_GET["ruta"] == "reportes" ||
         $_GET["ruta"] == "salir"){
 
-        include "modulos/".$_GET["ruta"].".php";
+        include __DIR__ . "/../modulos/".$_GET["ruta"].".php";
       }else{
-        include "modulos/404.php";
+        include __DIR__ . "/../modulos/404.php";
       }
     }else{
-      include "modulos/inicio.php";
+      include __DIR__ . "/../modulos/inicio.php";
     }
     // <!-- /.content-wrapper -->
 
     // Footer
-    include "modulos/Footer.php";
+    include "Footer.php";
 
     echo '</div>';
     // <!-- ./wrapper -->
   }else{
-    include "modulos/login.php";
+    include __DIR__ . "/../modulos/login.php";
   }
   ?>
 
