@@ -32,7 +32,7 @@
               <tr>
                 <th style="width: 10px;">#</th>
                 <th>Nombre</th>
-                <th>DNI</th>
+                <th>DNI/RUC</th>
                 <th>Email</th>
                 <th>Telefono</th>
                 <th>Direccion</th>
@@ -44,6 +44,33 @@
               </tr>
             </thead>
             <tbody>
+              <?php
+                $item = null;
+                $valor = null;
+                $clientes = ClientController::MostrarClientes($item, $valor);
+
+                foreach ($clientes as $key => $value) {
+                  echo '<tr>
+                          <td>'.$value["id"].'</td>
+                          <td>'.$value["nombre"].'</td>
+                          <td>'.$value["documento"].'</td>
+                          <td>'.$value["email"].'</td>
+                          <td>'.$value["telefono"].'</td>
+                          <td>'.$value["direccion"].'</td>
+                          <td>'.$value["fecha_nacimiento"].'</td>             
+                          <td>'.$value["compras"].'</td>
+                          <td>0000-00-00 00:00:00</td>
+                          <td>'.$value["fecha"].'</td>
+                          <td>
+                            <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'">
+                              <i class="fas fa-pencil-alt"></i>
+                            </button>
+
+                            <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                          </td>
+                        </tr>';
+                }
+              ?>
             </tbody>
           </table>
 
@@ -108,7 +135,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
             </div>
-            <input type="text" class="form-control" name="nuevaFechaNacimiento" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask placeholder="Ingresar fecha nacimiento" required>
+            <input type="text" class="form-control" name="nuevaFechaNacimiento" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask placeholder="Ingresar fecha nacimiento" required>
           </div>
 
         </div>
@@ -117,7 +144,8 @@
           <button type="submit" class="btn btn-primary">Guardar Cliente</button>
         </div>
         <?php
-          
+          $crearCliente = new ClientController();
+          $crearCliente->CrearCliente();
         ?>
       </form>
     </div>
