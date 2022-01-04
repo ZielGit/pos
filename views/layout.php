@@ -31,6 +31,9 @@ session_start();
   <script src="views/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="views/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- InputMask -->
+  <script src="views/plugins/moment/moment.min.js"></script>
+  <script src="views/plugins/inputmask/jquery.inputmask.min.js"></script>
   <!-- AdminLTE App -->
   <script src="views/dist/js/adminlte.min.js"></script>
   <!-- Sweet Alert 2 -->
@@ -38,7 +41,7 @@ session_start();
   <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
   <!-- iCheck -->
   <script src="views/plugins/icheck-1.0.3/icheck.min.js"></script>
-
+  
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -114,11 +117,15 @@ session_start();
 <script src="views/js/productos.js"></script>
 <script>
   $(document).ready(function(){
-    $('input').iCheck({
+    // Inicializar iCheck
+    $('input[type=radio],input[type=checkbox]').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
       radioClass: 'iradio_minimal-blue',
       increaseArea: '20%' // optional
     });
+
+    // Inicializar Inputmask
+    $(":input").inputmask();
 	});
 </script>
 </body>
