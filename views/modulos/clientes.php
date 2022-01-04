@@ -208,7 +208,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
             </div>
-            <input type="text" class="form-control" name="editarFechaNacimiento" id="editarFechaNacimiento" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" required>
+            <input type="text" class="form-control" name="editarFechaNacimiento" id="editarFechaNacimiento" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" required>
           </div>
 
         </div>
@@ -217,7 +217,8 @@
           <button type="submit" class="btn btn-primary">Editar Cliente</button>
         </div>
         <?php
-          
+          $editarCliente = new ClientController();
+          $editarCliente->EditarCliente();
         ?>
       </form>
     </div>
