@@ -94,13 +94,13 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                 '<div>'
             );
             // Sumar total de precios
-
+            sumarTotalPrecios()
             // Agregar Impuesto
-
+            agregarImpuesto()
             // Agrupar productos en formato json
 
             // Poner formato al precio de los productos
-
+            $(".nuevoPrecioProducto").number(true, 2);
         }
     })
 });
@@ -204,10 +204,11 @@ $(".btnAgregarProducto").click(function(){
 		        }
 	        }
             // Sumar total de precios
-
+            sumarTotalPrecios()
             // Agregar Impuesto
-
+            agregarImpuesto()
             // Poner formato al precio de los productos
+            $(".nuevoPrecioProducto").number(true, 2);
         }
     })
 })
@@ -248,6 +249,9 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
     if (Number($(this).val()) > Number($(this).attr("stock"))) {
         // Si la cantidad es superior al stock regresar valores iniciales
         $(this).val(1);
+        var precioFinal = $(this).val() * precio.attr("precioReal");
+		precio.val(precioFinal);
+		sumarTotalPrecios();
         Swal.fire({
             icon: "error",
             title: "Error",
@@ -257,8 +261,44 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
         return;
     }
     // Sumar total de precios
-
+    sumarTotalPrecios()
     // Agregar Impuesto
-
+    agregarImpuesto()
     // Agrupar productos en formato json
 })
+
+// Sumar todos los precios
+function sumarTotalPrecios(){
+    var precioItem = $(".nuevoPrecioProducto");
+	var arraySumaPrecio = [];
+    for(var i = 0; i < precioItem.length; i++){
+		 arraySumaPrecio.push(Number($(precioItem[i]).val()));
+	}
+    function sumaArrayPrecios(total, numero){
+		return total + numero;
+	}
+    var sumaTotalPrecio = arraySumaPrecio.reduce(sumaArrayPrecios);
+	$("#nuevoTotalVenta").val(sumaTotalPrecio);
+	$("#totalVenta").val(sumaTotalPrecio);
+	$("#nuevoTotalVenta").attr("total",sumaTotalPrecio);
+}
+
+// Función agregar impuesto
+function agregarImpuesto(){
+	var impuesto = $("#nuevoImpuestoVenta").val();
+	var precioTotal = $("#nuevoTotalVenta").attr("total");
+	var precioImpuesto = Number(precioTotal * impuesto/100);
+	var totalConImpuesto = Number(precioImpuesto) + Number(precioTotal);
+	$("#nuevoTotalVenta").val(totalConImpuesto);
+	$("#totalVenta").val(totalConImpuesto);
+	$("#nuevoPrecioImpuesto").val(precioImpuesto);
+	$("#nuevoPrecioNeto").val(precioTotal);
+}
+
+// Cuando cambia el impuesto
+$("#nuevoImpuestoVenta").change(function(){
+	agregarImpuesto();
+});
+
+// Formato de precios
+$("#nuevoTotalVenta").number(true, 2);

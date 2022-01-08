@@ -97,7 +97,9 @@
                         <tbody>
                           <td>
                             <div class="input-group">
-                              <input type="number" class="form-control" placeholder="0" required>
+                              <input type="number" class="form-control" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
+                              <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
+                              <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto" required>
                               <div class="input-group-append">
                                 <span class="input-group-text">
                                   <i class="fas fa-percent"></i>
@@ -107,7 +109,7 @@
                           </td>
                           <td>
                             <div class="input-group">
-                              <input type="text" class="form-control" placeholder="00000" required>
+                              <input type="text" class="form-control" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
                               <div class="input-group-append">
                                 <span class="input-group-text">
                                   <i class="fas fa-dollar-sign"></i>

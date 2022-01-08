@@ -38,9 +38,10 @@ session_start();
   <script src="views/dist/js/adminlte.min.js"></script>
   <!-- Sweet Alert 2 -->
   <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-  <!-- iCheck -->
+  <!-- iCheck 1.0.3 -->
   <script src="views/plugins/icheck-1.0.3/icheck.min.js"></script>
-  
+  <!-- JQuery Number 2.1.6 -->
+  <script src="views/plugins/jquery-number/jquery.number.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 
