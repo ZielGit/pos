@@ -24,28 +24,42 @@
             <div class="card card-success card-outline">
               <div class="card-header">
               </div>
-              <form action="" method="post">
+              <form class="formularioVenta" method="post">
                 <div class="card-body pad table-responsive">
                   
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control input-log" id="editarNombre" name="editarNombre" value="" required>
+                    <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
+                    <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
                   </div>
                   
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-code"></i></span>
                     </div>
-                    <input type="text" class="form-control input-log" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código" readonly required>
+                    <?php
+                      $item = null;
+                      $valor = null;
+                      $ventas = SaleController::MostrarVentas($item, $valor);
+                      if (!$ventas) {
+                        echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10001" readonly>';
+                      } else {
+                        foreach ($variable as $key => $value) {
+                          # code...
+                        }
+                        $codigo = $value["codigo"] + 1;
+                        echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="'.$codigo.'" readonly>';
+                      }
+                    ?>
                   </div>
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-users"></i></span>
                     </div>
-                    <select class="form-control input-lg" name="seleccionarCliente" id="seleccionarCliente" required>
+                    <select class="form-control" name="seleccionarCliente" id="seleccionarCliente" required>
                       <option value="">Selecionar Cliente</option>
                       <?php
                         $item = null;
@@ -63,14 +77,16 @@
                       </button>
                     </span>
                   </div>
-
-                  <div class="form-group row nuevo Producto">
-
+                  
+                  <!-- Entrada para agregar producto -->
+                  <div class="mb-2 nuevoProducto">
+                    
                   </div>
                   <input type="hidden" id="" name="">
 
                   <button type="button" class="btn btn-info d-lg-none btnAgregarProducto">Agregar producto</button>
-
+                  <hr>
+                  
                   <div class="row">
                     <div class="col-md-8 ml-auto float-right">
                       <table class="table">
@@ -106,9 +122,9 @@
                   <div class="form-group row">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-users"></i></span>
+                        <span class="input-group-text"><i class="far fa-credit-card"></i></span>
                       </div>
-                      <select class="form-control input-lg" name="nuevoMetodoPago" id="nuevoMetodoPago" required>
+                      <select class="form-control" name="nuevoMetodoPago" id="nuevoMetodoPago" required>
                         <option value="">Selecione método de pago</option>
                         <option value="Efectivo">Efectivo</option>
                         <option value="TC">Tarjeta de crédito</option>
@@ -135,7 +151,7 @@
               <div class="card-header">
               </div>
               <div class="card-body pad table-responsive">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped tablaVentas">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -175,21 +191,21 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="nuevoCliente" placeholder="Ingresar nombre" required>
+            <input type="text" class="form-control" name="nuevoCliente" placeholder="Ingresar nombre" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-id-card"></i></span>
             </div>
-            <input type="number" class="form-control input-log" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
+            <input type="number" class="form-control" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="email" class="form-control input-log" name="nuevoEmail" placeholder="Ingresar email" required>
+            <input type="email" class="form-control" name="nuevoEmail" placeholder="Ingresar email" required>
           </div>
 
           <div class="input-group mb-3">
@@ -203,7 +219,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="nuevaDireccion" placeholder="Ingresar dirección" required>
+            <input type="text" class="form-control" name="nuevaDireccion" placeholder="Ingresar dirección" required>
           </div>
 
           <div class="input-group mb-3">
