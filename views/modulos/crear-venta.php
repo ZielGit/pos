@@ -121,20 +121,23 @@
                       </table>
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="far fa-credit-card"></i></span>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="far fa-credit-card"></i></span>
+                        </div>
+                        <select class="form-control" name="nuevoMetodoPago" id="nuevoMetodoPago" required>
+                          <option value="">Selecione método de pago</option>
+                          <option value="Efectivo">Efectivo</option>
+                          <option value="TC">Tarjeta de crédito</option>
+                          <option value="TD">Tarjeta de Débito</option>
+                        </select>
                       </div>
-                      <select class="form-control" name="nuevoMetodoPago" id="nuevoMetodoPago" required>
-                        <option value="">Selecione método de pago</option>
-                        <option value="Efectivo">Efectivo</option>
-                        <option value="TC">Tarjeta de crédito</option>
-                        <option value="TD">Tarjeta de Débito</option>
-                      </select>
                     </div>
 
-                    <div class="cajasMetodoPago"></div>
+                    <div class="col-sm-6 cajasMetodoPago"></div>
                     <input type="hidden" id="listaMetodoPago" name="listaMetodoPago">
                   </div>
 

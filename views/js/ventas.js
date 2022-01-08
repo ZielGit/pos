@@ -302,3 +302,62 @@ $("#nuevoImpuestoVenta").change(function(){
 
 // Formato de precios
 $("#nuevoTotalVenta").number(true, 2);
+
+// Seleccionar método de pago
+$("#nuevoMetodoPago").change(function(){
+    var metodo = $(this).val();
+    if (metodo == "Efectivo") {
+        $(this).parent().parent().removeClass("col-sm-6");
+        $(this).parent().parent().addClass("col-sm-4");
+        $(this).parent().parent().parent().children(".cajasMetodoPago").removeClass("col-sm-6");
+        $(this).parent().parent().parent().children(".cajasMetodoPago").addClass("col-sm-8");
+        $(this).parent().parent().parent().children(".cajasMetodoPago").html(
+            '<div class="row">'+
+                '<div class="col-6">'+
+                    '<div class="input-group">'+
+                        '<div class="input-group-prepend">'+
+                            '<span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>'+
+                        '</div>'+
+                        '<input type="text" class="form-control" id="nuevoValorEfectivo" placeholder="000000" required>'+
+                    '</div>'+
+                '</div>'+
+                '<div class="col-6" id="capturarCambioEfectivo">'+
+                    '<div class="input-group">'+
+                        '<div class="input-group-prepend">'+
+                            '<span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>'+
+                        '</div>'+
+                        '<input type="text" class="form-control" id="nuevoCambioEfectivo" placeholder="000000" readonly required>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'
+        )
+        // Agregar formato al precio
+        $('#nuevoValorEfectivo').number( true, 2);
+      	$('#nuevoCambioEfectivo').number( true, 2);
+        //   Listar método en la entrada
+
+    } else {
+        $(this).parent().parent().removeClass('col-sm-4');
+        $(this).parent().parent().addClass('col-sm-6');
+        $(this).parent().parent().parent().children(".cajasMetodoPago").removeClass("col-sm-8");
+        $(this).parent().parent().parent().children(".cajasMetodoPago").addClass("col-sm-6");
+        $(this).parent().parent().parent().children(".cajasMetodoPago").html(
+            '<div class="col">'+
+                '<div class="input-group">'+
+                    '<input type="number" class="form-control" id="nuevoCodigoTransaccion" min="0" placeholder="Código transacción" required>'+
+                    '<div class="input-group-prepend">'+
+                        '<span class="input-group-text"><i class="fas fa-lock"></i></span>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'
+        )
+    }
+})
+
+// Cambio en efectivo
+$(".formularioVenta").on("change", "input#nuevoValorEfectivo", function(){
+	var efectivo = $(this).val();
+	var cambio =  Number(efectivo) - Number($('#nuevoTotalVenta').val());
+	var nuevoCambioEfectivo = $(this).parent().parent().parent().children('#capturarCambioEfectivo').children().children('#nuevoCambioEfectivo');
+	nuevoCambioEfectivo.val(cambio);
+})
