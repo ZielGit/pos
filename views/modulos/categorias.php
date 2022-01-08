@@ -85,7 +85,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-tags"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="nuevaCategoria" name="nuevaCategoria" placeholder="Ingresar Categoría" required>
+            <input type="text" class="form-control" id="nuevaCategoria" name="nuevaCategoria" placeholder="Ingresar Categoría" required>
           </div>
 
         </div>
@@ -122,7 +122,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-tags"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="editarCategoria" name="editarCategoria" value="" required>
+            <input type="text" class="form-control" id="editarCategoria" name="editarCategoria" value="" required>
             <input type="hidden" id="idCategoria" name="idCategoria">
           </div>
 

@@ -103,21 +103,21 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-user"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+            <input type="text" class="form-control" name="nuevoNombre" placeholder="Ingresar Nombre" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-key"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="nuevoUsuario" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
+            <input type="text" class="form-control" id="nuevoUsuario" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-lock"></i></span>
             </div>
-            <input type="password" class="form-control input-log" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
+            <input type="password" class="form-control" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
           </div>
 
           <div class="input-group mb-3">
@@ -171,21 +171,21 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-user"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="editarNombre" name="editarNombre" value="" required>
+            <input type="text" class="form-control" id="editarNombre" name="editarNombre" value="" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-key"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="editarUsuario" name="editarUsuario" value="" readonly>
+            <input type="text" class="form-control" id="editarUsuario" name="editarUsuario" value="" readonly>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-lock"></i></span>
             </div>
-            <input type="password" class="form-control input-log" name="editarPassword" placeholder="Escriba la Nueva Contraseña" required>
+            <input type="password" class="form-control" name="editarPassword" placeholder="Escriba la Nueva Contraseña" required>
             <input type="hidden" id="passwordActual" name="passwordActual">
           </div>
 

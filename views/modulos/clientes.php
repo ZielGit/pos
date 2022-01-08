@@ -100,21 +100,21 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="nuevoCliente" placeholder="Ingresar nombre" required>
+            <input type="text" class="form-control" name="nuevoCliente" placeholder="Ingresar nombre" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-id-card"></i></span>
             </div>
-            <input type="number" class="form-control input-log" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
+            <input type="number" class="form-control" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="email" class="form-control input-log" name="nuevoEmail" placeholder="Ingresar email" required>
+            <input type="email" class="form-control" name="nuevoEmail" placeholder="Ingresar email" required>
           </div>
 
           <div class="input-group mb-3">
@@ -128,7 +128,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="nuevaDireccion" placeholder="Ingresar dirección" required>
+            <input type="text" class="form-control" name="nuevaDireccion" placeholder="Ingresar dirección" required>
           </div>
 
           <div class="input-group mb-3">
@@ -172,7 +172,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="editarCliente" id="editarCliente" required>
+            <input type="text" class="form-control" name="editarCliente" id="editarCliente" required>
             <input type="hidden" id="idCliente" name="idCliente">
           </div>
 
@@ -180,14 +180,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-id-card"></i></span>
             </div>
-            <input type="number" class="form-control input-log" name="editarDocumentoId" id="editarDocumentoId" required>
+            <input type="number" class="form-control" name="editarDocumentoId" id="editarDocumentoId" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="email" class="form-control input-log" name="editarEmail" id="editarEmail" required>
+            <input type="email" class="form-control" name="editarEmail" id="editarEmail" required>
           </div>
 
           <div class="input-group mb-3">
@@ -201,7 +201,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
             </div>
-            <input type="text" class="form-control input-log" name="editarDireccion" id="editarDireccion" required>
+            <input type="text" class="form-control" name="editarDireccion" id="editarDireccion" required>
           </div>
 
           <div class="input-group mb-3">

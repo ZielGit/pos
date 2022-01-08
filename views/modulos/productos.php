@@ -91,21 +91,21 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-code"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código" readonly required>
+            <input type="text" class="form-control" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código" readonly required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="nuevaDescripcion" name="nuevaDescripcion" placeholder="Ingresar Descripción" required>
+            <input type="text" class="form-control" id="nuevaDescripcion" name="nuevaDescripcion" placeholder="Ingresar Descripción" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-check"></i></span>
             </div>
-            <input type="number" class="form-control input-log" name="nuevoStock" min="0" placeholder="Ingresar Stock" required>
+            <input type="number" class="form-control" name="nuevoStock" min="0" placeholder="Ingresar Stock" required>
           </div>
 
           <div class="row">
@@ -114,7 +114,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-arrow-up"></i></span>
                 </div>
-                <input type="number" class="form-control input-log" name="nuevoPrecioCompra" id="nuevoPrecioCompra" min="0" step="any" placeholder="Precio Compra" required>
+                <input type="number" class="form-control" name="nuevoPrecioCompra" id="nuevoPrecioCompra" min="0" step="any" placeholder="Precio Compra" required>
               </div>
             </div>
           
@@ -123,7 +123,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-arrow-down"></i></span>
                 </div>
-                <input type="number" class="form-control input-log" name="nuevoPrecioVenta" id="nuevoPrecioVenta" min="0" step="any" placeholder="Precio Venta" readonly required>
+                <input type="number" class="form-control" name="nuevoPrecioVenta" id="nuevoPrecioVenta" min="0" step="any" placeholder="Precio Venta" readonly required>
               </div>
               <br>
 
@@ -201,21 +201,21 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-code"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="editarCodigo" name="editarCodigo" readonly required>
+            <input type="text" class="form-control" id="editarCodigo" name="editarCodigo" readonly required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
             </div>
-            <input type="text" class="form-control input-log" id="editarDescripcion" name="editarDescripcion" required>
+            <input type="text" class="form-control" id="editarDescripcion" name="editarDescripcion" required>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-check"></i></span>
             </div>
-            <input type="number" class="form-control input-log" id="editarStock" name="editarStock" min="0" required>
+            <input type="number" class="form-control" id="editarStock" name="editarStock" min="0" required>
           </div>
 
           <div class="row">
@@ -224,7 +224,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-arrow-up"></i></span>
                 </div>
-                <input type="number" class="form-control input-log" name="editarPrecioCompra" id="editarPrecioCompra" min="0" step="any" required>
+                <input type="number" class="form-control" name="editarPrecioCompra" id="editarPrecioCompra" min="0" step="any" required>
               </div>
             </div>
           
@@ -233,7 +233,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-arrow-down"></i></span>
                 </div>
-                <input type="number" class="form-control input-log" name="editarPrecioVenta" id="editarPrecioVenta" min="0" step="any" readonly required>
+                <input type="number" class="form-control" name="editarPrecioVenta" id="editarPrecioVenta" min="0" step="any" readonly required>
               </div>
               <br>
 
