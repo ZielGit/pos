@@ -46,8 +46,8 @@
                       if (!$ventas) {
                         echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10001" readonly>';
                       } else {
-                        foreach ($variable as $key => $value) {
-                          # code...
+                        foreach ($ventas as $key => $value) {
+                          //
                         }
                         $codigo = $value["codigo"] + 1;
                         echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="'.$codigo.'" readonly>';
@@ -110,6 +110,7 @@
                           <td>
                             <div class="input-group">
                               <input type="text" class="form-control" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
+                              <input type="hidden" name="totalVenta" id="totalVenta">
                               <div class="input-group-append">
                                 <span class="input-group-text">
                                   <i class="fas fa-dollar-sign"></i>
@@ -146,6 +147,10 @@
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary ml-auto float-right">Guardar Venta</button>
                 </div>
+                <?php
+                  $guardarVenta = new SaleController();
+                  $guardarVenta->CrearVenta();
+                ?>
               </form>
             </div>
           </div>
