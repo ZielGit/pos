@@ -23,7 +23,7 @@
       <div class="card">
         <div class="card-header">
           <a href="crear-venta">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarVenta">
+            <button class="btn btn-primary">
               Agregar Venta
             </button>
           </a>
@@ -44,33 +44,41 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <?php
+              <?php
                 $item = null;
                 $valor = null;
-                //$ventas = SaleController::MostrarVentas($item, $valor);
+                $ventas = SaleController::MostrarVentas($item, $valor);
 
-                foreach ($Ventas as $key => $value) {
+                foreach ($ventas as $key => $value) {
                   echo '<tr>
                           <td>'.$value["id"].'</td>
-                          <td>'.$value["nombre"].'</td>
-                          <td>'.$value["documento"].'</td>
-                          <td>'.$value["email"].'</td>
-                          <td>'.$value["telefono"].'</td>
-                          <td>'.$value["direccion"].'</td>
-                          <td>'.$value["fecha_nacimiento"].'</td>             
-                          <td>'.$value["compras"].'</td>
-                          <td>0000-00-00 00:00:00</td>
-                          <td>'.$value["fecha"].'</td>
+                          <td>'.$value["codigo"].'</td>';
+                          $itemCliente = "id";
+                          $valorCliente = $value["id_cliente"];
+                          $respuestaCliente = ClientController::MostrarClientes($itemCliente, $valorCliente);
+                          echo '<td>'.$respuestaCliente["nombre"].'</td>';
+                          $itemUsuario = "id";
+                          $valorUsuario = $value["id_vendedor"];
+                          $respuestaUsuario = UserController::MostrarUsuario($itemUsuario, $valorUsuario);
+                          echo '<td>'.$respuestaUsuario["nombre"].'</td>
+                          <td>'.$value["metodo_pago"].'</td>
+                          <td>$ '.number_format($value["neto"],2).'</td>
+                          <td>$ '.number_format($value["total"],2).'</td>
+                          <td>'.$value["fecha"].'</td>      
                           <td>
-                            <button class="btn btn-warning btnEditarVenta" data-toggle="modal" data-target="#modalEditarVenta" idVenta="'.$value["id"].'">
+                            <button class="btn btn-info"><i class="fas fa-print"></i></button>
+
+                            <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'">
                               <i class="fas fa-pencil-alt"></i>
                             </button>
 
-                            <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'">
+                              <i class="fas fa-times"></i>
+                            </button>
                           </td>
                         </tr>';
                 }
-              ?> -->
+              ?>
             </tbody>
           </table>
 
