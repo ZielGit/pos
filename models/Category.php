@@ -8,14 +8,11 @@ class Category{
     static public function IngresarCategoria($tabla, $datos){
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria) VALUES (:categoria)");
         $stmt->bindParam(":categoria", $datos, PDO::PARAM_STR);
-        
         if ($stmt->execute()) {
             return "ok";
         } else {
             return "error";
         }
-
-        $stmt->close();
         $stmt = null;
     }
 
@@ -31,8 +28,6 @@ class Category{
             $stmt->execute();
             return $stmt->fetchAll();
         }
-
-        $stmt->close();
         $stmt = null;
     }
 
@@ -41,14 +36,11 @@ class Category{
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
         $stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_STR);
-        
         if ($stmt->execute()) {
             return "ok";
         } else {
             return "error";
         }
-
-        $stmt->close();
         $stmt = null;
     }
 
@@ -56,14 +48,11 @@ class Category{
     static public function BorrarCategoria($tabla, $datos){
         $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
         $stmt->bindParam(":id", $datos, PDO::PARAM_STR);
-
         if ($stmt->execute()) {
             return "ok";
         } else {
             return "error";
         }
-
-        $stmt->close();
         $stmt = null;
     }
 }
