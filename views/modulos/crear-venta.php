@@ -82,7 +82,7 @@
                   <div class="mb-2 nuevoProducto">
                     
                   </div>
-                  <input type="hidden" id="" name="">
+                  <input type="hidden" id="listaProductos" name="listaProductos">
 
                   <button type="button" class="btn btn-info d-lg-none btnAgregarProducto">Agregar producto</button>
                   <hr>

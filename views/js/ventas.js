@@ -98,7 +98,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
             // Agregar Impuesto
             agregarImpuesto()
             // Agrupar productos en formato json
-
+            listarProductos()
             // Poner formato al precio de los productos
             $(".nuevoPrecioProducto").number(true, 2);
         }
@@ -216,7 +216,7 @@ $(".btnAgregarProducto").click(function(){
 // Seleccionar Producto
 $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
     var nombreProducto = $(this).val();
-    
+    var nuevaDescripcionProducto = $(this).parent().parent().parent().children().children().children(".nuevaDescripcionProducto");
     var nuevaCantidadProducto = $(this).parent().parent().parent().children(".ingresoCantidad").children().children(".nuevaCantidadProducto"); 
     var nuevoPrecioProducto = $(this).parent().parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
     var datos = new FormData();
@@ -230,10 +230,13 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
       	processData: false,
       	dataType:"json",
         success:function (respuesta) {
+            $(nuevaDescripcionProducto).attr("idProducto", respuesta["id"]);
             $(nuevaCantidadProducto).attr("stock", respuesta["stock"]);
+      	    $(nuevaCantidadProducto).attr("nuevoStock", Number(respuesta["stock"])-1);
             $(nuevoPrecioProducto).val(respuesta["precio_venta"]);
             $(nuevoPrecioProducto).attr("precioReal", respuesta["precio_venta"]);
             // Agrupar productos en formato json
+            listarProductos()
         }
     })
 })
@@ -265,6 +268,7 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
     // Agregar Impuesto
     agregarImpuesto()
     // Agrupar productos en formato json
+    listarProductos()
 })
 
 // Sumar todos los precios
@@ -361,3 +365,24 @@ $(".formularioVenta").on("change", "input#nuevoValorEfectivo", function(){
 	var nuevoCambioEfectivo = $(this).parent().parent().parent().children('#capturarCambioEfectivo').children().children('#nuevoCambioEfectivo');
 	nuevoCambioEfectivo.val(cambio);
 })
+
+// Listar todos los productos
+function listarProductos(){
+	var listaProductos = [];
+	var descripcion = $(".nuevaDescripcionProducto");
+	var cantidad = $(".nuevaCantidadProducto");
+	var precio = $(".nuevoPrecioProducto");
+
+	for(var i = 0; i < descripcion.length; i++){
+		listaProductos.push({
+            "id"            : $(descripcion[i]).attr("idProducto"), 
+			"descripcion"   : $(descripcion[i]).val(),
+			"cantidad"      : $(cantidad[i]).val(),
+			"stock"         : $(cantidad[i]).attr("nuevoStock"),
+			"precio"        : $(precio[i]).attr("precioReal"),
+			"total"         : $(precio[i]).val()
+        })
+	}
+
+	$("#listaProductos").val(JSON.stringify(listaProductos)); 
+}
