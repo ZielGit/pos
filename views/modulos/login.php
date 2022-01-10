@@ -3,7 +3,7 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+        <h1><b>Admin</b>LTE</h1>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
@@ -26,16 +26,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-8">
-              <!-- <div class="icheck-primary">
-                <input type="checkbox" id="remember">
-                <label for="remember">
-                  Remember Me
-                </label>
-              </div> -->
-            </div>
-            <!-- /.col -->
-            <div class="col-4">
+            <div class="col">
               <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
             </div>
             <!-- /.col -->
@@ -44,7 +35,6 @@
             $login = new UserController();
             $login -> ctrIngresoUsuario();
           ?>
-
         </form>
         
       </div>
