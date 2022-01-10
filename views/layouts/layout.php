@@ -51,11 +51,11 @@ session_start();
     echo'<div class="wrapper">';
 
     // <!-- Navbar -->
-    include "Navbar.php";
+    include "navbar.php";
     // <!-- /.navbar -->
 
     // <!-- Main Sidebar Container -->
-    include "Sidebar.php";
+    include "sidebar.php";
 
     // <!-- Content Wrapper. Contains page content -->
     if(isset($_GET["ruta"])){
@@ -80,7 +80,7 @@ session_start();
     // <!-- /.content-wrapper -->
 
     // Footer
-    include "Footer.php";
+    include "footer.php";
 
     echo '</div>';
     // <!-- ./wrapper -->
