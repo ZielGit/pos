@@ -192,7 +192,7 @@ $(".btnAgregarProducto").click(function(){
                             '<input type="text" class="form-control nuevoPrecioProducto" precioReal="" name="nuevoPrecioProducto" readonly required>'+
                         '</div>'+
                     '</div>'+
-                '<div>'
+                '</div>'
             );
             // Agregar los productos al select
             respuesta.forEach(funcionForEach);
@@ -402,3 +402,35 @@ function listarMetodos(){
 		$("#listaMetodoPago").val($("#nuevoMetodoPago").val()+"-"+$("#nuevoCodigoTransaccion").val());
 	}
 }
+
+// Boton editar venta
+// $(".tablas").on("click", ".btnEditarVenta", function(){
+$(".btnEditarVenta").click(function () {
+	var idVenta = $(this).attr("idVenta");
+	window.location = "index.php?ruta=editar-venta&idVenta="+idVenta;
+})
+
+// Función para desactivar los botones "agregar" cuando el producto ya había sido seleccionado en la venta
+function quitarAgregarProducto(){
+	//Capturamos todos los id de productos que fueron elegidos en la venta
+	var idProductos = $(".quitarProducto");
+	//Capturamos todos los botones de agregar que aparecen en la tabla
+	var botonesTabla = $(".tablaVentas tbody button.agregarProducto");
+	//Recorremos en un ciclo para obtener los diferentes idProductos que fueron agregados a la venta
+	for(var i = 0; i < idProductos.length; i++){
+		//Capturamos los Id de los productos agregados a la venta
+		var boton = $(idProductos[i]).attr("idProducto");
+		//Hacemos un recorrido por la tabla que aparece para desactivar los botones de agregar
+		for(var j = 0; j < botonesTabla.length; j ++){
+			if($(botonesTabla[j]).attr("idProducto") == boton){
+				$(botonesTabla[j]).removeClass("btn-primary agregarProducto");
+				$(botonesTabla[j]).addClass("btn-default");
+			}
+		}
+	}
+}
+
+// Cada vez que cargue la tabla cuando navegamos en ella ejecutar la función
+$('.tablaVentas').on( 'draw.dt', function(){
+	quitarAgregarProducto();
+})

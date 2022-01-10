@@ -59,7 +59,7 @@
                           <td>'.$value["direccion"].'</td>
                           <td>'.$value["fecha_nacimiento"].'</td>             
                           <td>'.$value["compras"].'</td>
-                          <td>0000-00-00 00:00:00</td>
+                          <td>'.$value["ultima_compra"].'</td>
                           <td>'.$value["fecha"].'</td>
                           <td>
                             <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'">
