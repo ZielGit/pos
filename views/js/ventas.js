@@ -434,3 +434,23 @@ function quitarAgregarProducto(){
 $('.tablaVentas').on( 'draw.dt', function(){
 	quitarAgregarProducto();
 })
+
+// Eliminar Venta
+// $(".tablas").on("click", ".btnEliminarVenta", function(){
+$(".btnEliminarVenta").click(function () {
+    var idVenta = $(this).attr("idVenta");
+    Swal.fire({
+        title: '¿Está seguro de borrar la venta?',
+        text: "¡Si no lo está puede cancelar la acción!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, borrar venta!'
+    }).then((result) => {
+        if (result.value) {
+            window.location = "index.php?ruta=ventas&idVenta="+idVenta;
+        }
+    })
+})

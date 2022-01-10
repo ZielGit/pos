@@ -81,7 +81,10 @@
               ?>
             </tbody>
           </table>
-
+          <?php
+            $eliminarVenta = new SaleController();
+            $eliminarVenta->EliminarVenta();
+          ?>
         </div>
         <!-- /.card-body -->
       </div>

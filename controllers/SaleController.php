@@ -138,7 +138,7 @@ class SaleController{
 				$valor1a_2 = array_sum($totalProductosComprados_2) + $traerCliente_2["compras"];
 				$comprasCliente_2 = Client::ActualizarCliente($tablaClientes_2, $item1a_2, $valor1a_2, $valor_2);
 				$item1b_2 = "ultima_compra";
-				date_default_timezone_set('America/Bogota');
+				date_default_timezone_set('America/Lima');
 				$fecha = date('Y-m-d');
 				$hora = date('H:i:s');
 				$valor1b_2 = $fecha.' '.$hora;
@@ -171,6 +171,85 @@ class SaleController{
 						});
 					</script>';
 				}
+			}
+		}
+	}
+
+	// Eliminar Venta
+	static public function EliminarVenta(){
+		if (isset($_GET["idVenta"])) {
+			$tabla = "ventas";
+			$item = "id";
+			$valor = $_GET["idVenta"];
+			$traerVenta = Sale::MostrarVentas($tabla, $item, $valor);
+			// Actualizar fecha útima compra
+			$tablaClientes = "clientes";
+			$itemVentas = null;
+			$valorVentas = null;
+			$traerVentas = Sale::MostrarVentas($tabla, $itemVentas, $valorVentas);
+			$guardarFechas = array();
+			foreach ($traerVentas as $key => $value) {
+				if($value["id_cliente"] == $traerVenta["id_cliente"]){
+					array_push($guardarFechas, $value["fecha"]);
+				}
+			}
+			if(count($guardarFechas) > 1){
+				if($traerVenta["fecha"] > $guardarFechas[count($guardarFechas)-2]){
+					$item = "ultima_compra";
+					$valor = $guardarFechas[count($guardarFechas)-2];
+					$valorIdCliente = $traerVenta["id_cliente"];
+					$comprasCliente = Client::ActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
+				}else{
+					$item = "ultima_compra";
+					$valor = $guardarFechas[count($guardarFechas)-1];
+					$valorIdCliente = $traerVenta["id_cliente"];
+					$comprasCliente = Client::ActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
+				}
+			}else{
+				$item = "ultima_compra";
+				$valor = "0000-00-00 00:00:00";
+				$valorIdCliente = $traerVenta["id_cliente"];
+				$comprasCliente = Client::ActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
+			}
+			// Formatear tabla de productos y la de clientes
+			$productos =  json_decode($traerVenta["productos"], true);
+			$totalProductosComprados = array();
+			foreach ($productos as $key => $value) {
+				array_push($totalProductosComprados, $value["cantidad"]);
+				$tablaProductos = "productos";
+				$item = "id";
+				$valor = $value["id"];
+				$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor);
+				$item1a = "ventas";
+				$valor1a = $traerProducto["ventas"] - $value["cantidad"];
+				$nuevasVentas = Product::ActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
+				$item1b = "stock";
+				$valor1b = $value["cantidad"] + $traerProducto["stock"];
+				$nuevoStock = Product::ActualizarProducto($tablaProductos, $item1b, $valor1b, $valor);
+			}
+			$tablaClientes = "clientes";
+			$itemCliente = "id";
+			$valorCliente = $traerVenta["id_cliente"];
+			$traerCliente = Client::MostrarClientes($tablaClientes, $itemCliente, $valorCliente);
+			$item1a = "compras";
+			$valor1a = $traerCliente["compras"] - array_sum($totalProductosComprados);
+			$comprasCliente = Client::ActualizarCliente($tablaClientes, $item1a, $valor1a, $valorCliente);
+			
+			// Eliminar Venta
+			$respuesta = Sale::EliminarVenta($tabla, $_GET["idVenta"]);
+			if ($respuesta == "ok") {
+				echo '<script>
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡El venta ha sido eliminado correctamente!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar"
+                    }).then(function(result){
+                        if(result.value){
+                            window.location = "ventas";
+                        }
+                    });
+                </script>';
 			}
 		}
 	}
