@@ -59,13 +59,13 @@ class UserController{
                     $nuevoAncho = 500;
 					$nuevoAlto = 500;
                     // Crear el directorio
-                    $directorio = "views/img/users/".$_POST["nuevoUsuario"];
+                    $directorio = "public/img/users/".$_POST["nuevoUsuario"];
                     mkdir($directorio, 0755);
                     // De acuerdo al tipo de imagen aplicamos las funciones por defecto de php
                     if($_FILES["nuevaFoto"]["type"] == "image/jpeg"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
+						$ruta = "public/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
 						$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
@@ -75,7 +75,7 @@ class UserController{
                     if($_FILES["nuevaFoto"]["type"] == "image/png"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".png";
+						$ruta = "public/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".png";
 						$origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
@@ -138,7 +138,7 @@ class UserController{
                     $nuevoAncho = 500;
 					$nuevoAlto = 500;
                     // Crear el directorio
-                    $directorio = "views/img/users/".$_POST["editarUsuario"];
+                    $directorio = "public/img/users/".$_POST["editarUsuario"];
                     // Validar si existe una foto
                     if (!empty($_POST["fotoActual"])) {
                         unlink($_POST["fotoActual"]);
@@ -149,7 +149,7 @@ class UserController{
                     if($_FILES["editarFoto"]["type"] == "image/jpeg"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/users/".$_POST["editarUsuario"]."/".$aleatorio.".jpg";
+						$ruta = "public/img/users/".$_POST["editarUsuario"]."/".$aleatorio.".jpg";
 						$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
@@ -159,7 +159,7 @@ class UserController{
                     if($_FILES["editarFoto"]["type"] == "image/png"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/users/".$_POST["editarUsuario"]."/".$aleatorio.".png";
+						$ruta = "public/img/users/".$_POST["editarUsuario"]."/".$aleatorio.".png";
 						$origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);

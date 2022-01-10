@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="views/index3.html" class="brand-link">
-        <img src="views/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a class="brand-link">
+        <img src="public/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -14,7 +14,7 @@
                     if ($_SESSION["foto"] != "") {
                         echo '<img src="'.$_SESSION["foto"].'" class="img-circle elevation-2" alt="User Image">';
                     } else {
-                        echo '<img src="views/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">';
+                        echo '<img src="public/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">';
                     }
                 ?>
             </div>
@@ -38,8 +38,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                    with font-awesome or any other icon font library -->
+                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="inicio" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>

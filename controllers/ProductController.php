@@ -17,20 +17,20 @@ class ProductController{
 			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioCompra"]) && preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
                 
                 // Validar imagen
-                $ruta = "views/img/products/default/anonymous.png";   
+                $ruta = "public/img/products/default/anonymous.png";   
 
                 if (isset($_FILES["nuevaImagen"]["tmp_name"])){
                     list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
                     $nuevoAncho = 500;
 					$nuevoAlto = 500;
                     // Crear el directorio
-                    $directorio = "views/img/products/".$_POST["nuevoCodigo"];
+                    $directorio = "public/img/products/".$_POST["nuevoCodigo"];
                     mkdir($directorio, 0755);
                     // De acuerdo al tipo de imagen aplicamos las funciones por defecto de php
                     if($_FILES["nuevaImagen"]["type"] == "image/jpeg"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/products/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "public/img/products/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
 						$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
@@ -40,7 +40,7 @@ class ProductController{
                     if($_FILES["nuevaImagen"]["type"] == "image/png"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/products/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
+						$ruta = "public/img/products/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
 						$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
@@ -102,9 +102,9 @@ class ProductController{
                     $nuevoAncho = 500;
 					$nuevoAlto = 500;
                     // Crear el directorio
-                    $directorio = "views/img/products/".$_POST["editarCodigo"];
+                    $directorio = "public/img/products/".$_POST["editarCodigo"];
                     // Verificamos si la imagen existe en la bd
-                    if (!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "views/img/products/default/anonymous.png") {
+                    if (!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "public/img/products/default/anonymous.png") {
                         unlink($_POST["imagenActual"]);
                     } else {
                         mkdir($directorio, 0755);
@@ -113,7 +113,7 @@ class ProductController{
                     if($_FILES["editarImagen"]["type"] == "image/jpeg"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/products/".$_POST["editarCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "public/img/products/".$_POST["editarCodigo"]."/".$aleatorio.".jpg";
 						$origen = imagecreatefromjpeg($_FILES["editarImagen"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
@@ -123,7 +123,7 @@ class ProductController{
                     if($_FILES["editarImagen"]["type"] == "image/png"){
                         // Guardamos la imagen en el directorio
                         $aleatorio = mt_rand(100,999);
-						$ruta = "views/img/products/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
+						$ruta = "public/img/products/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
 						$origen = imagecreatefrompng($_FILES["editarImagen"]["tmp_name"]);						
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
@@ -175,9 +175,9 @@ class ProductController{
         if(isset($_GET["idProducto"])){
             $tabla ="productos";
 			$datos = $_GET["idProducto"];
-            if($_GET["imagen"] != "" && $_GET["imagen"] != "views/img/products/default/anonymous.png"){
+            if($_GET["imagen"] != "" && $_GET["imagen"] != "public/img/products/default/anonymous.png"){
 				unlink($_GET["imagen"]);
-				rmdir('views/img/products/'.$_GET["codigo"]);
+				rmdir('public/img/products/'.$_GET["codigo"]);
 			}
             $respuesta = Product::EliminarProducto($tabla, $datos);
             if ($respuesta == "ok") {

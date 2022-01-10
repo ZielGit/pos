@@ -49,7 +49,7 @@
                           if ($value["foto"] != "") {
                             echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
                           } else {
-                            echo '<td><img src="views/dist/img/avatar5.png" class="img-thumbnail" width="40px"></td>';
+                            echo '<td><img src="public/dist/img/avatar5.png" class="img-thumbnail" width="40px"></td>';
                           }
                           echo '<td>'.$value["perfil"].'</td>';
                           if ($value["estado"] != 0) {
@@ -130,7 +130,7 @@
             <div class="panel">Subir Foto</div>
             <input type="file" class="nuevaFoto" name="nuevaFoto">
             <p class="help-block">Peso máximo de la foto 200MB</p>
-            <img class="img-thumbnail previsualizar" src="views/dist/img/avatar5.png" alt="" width="100px">
+            <img class="img-thumbnail previsualizar" src="public/dist/img/avatar5.png" alt="" width="100px">
           </div>
         </div>
         <div class="modal-footer justify-content-between">
@@ -199,7 +199,7 @@
             <div class="panel">Subir Foto</div>
             <input type="file" class="nuevaFoto" name="editarFoto">
             <p class="help-block">Peso máximo de la foto 2MB</p>
-            <img class="img-thumbnail previsualizar" src="views/dist/img/avatar5.png" alt="" width="100px">
+            <img class="img-thumbnail previsualizar" src="public/dist/img/avatar5.png" alt="" width="100px">
             <input type="hidden" name="fotoActual" id="fotoActual">
           </div>
         </div>
