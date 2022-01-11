@@ -118,7 +118,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-users"></i></span>
             </div>
-            <select class="form-control input-lg" name="nuevoPerfil" id="">
+            <select class="form-control" name="nuevoPerfil" id="">
               <option value="">Selecionar Perfil</option>
               <option value="Administrador">Administrador</option>
               <option value="Especial">Especial</option>
@@ -187,7 +187,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-users"></i></span>
             </div>
-            <select class="form-control input-lg" name="editarPerfil" id="">
+            <select class="form-control" name="editarPerfil" id="">
               <option value="" id="editarPerfil"></option>
               <option value="Administrador">Administrador</option>
               <option value="Especial">Especial</option>
