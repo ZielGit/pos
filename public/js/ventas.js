@@ -7,6 +7,8 @@
 // })
 
 $('.tablaVentas').DataTable({
+    responsive: true,
+    autoWidth: false,
     "ajax": "ajax/datatable-ventas.ajax.php",
     "deferRender": true,
 	"retrieve": true,

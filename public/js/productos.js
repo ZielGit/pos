@@ -7,6 +7,8 @@
 // })
 
 $('.tablaProductos').DataTable({
+    responsive: true,
+    autoWidth: false,
     "ajax": "ajax/datatable-productos.ajax.php",
     "deferRender": true,
 	"retrieve": true,
