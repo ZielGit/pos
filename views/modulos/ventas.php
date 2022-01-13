@@ -29,7 +29,7 @@
           </a>
         </div>
         <div class="card-body">
-          <table id="datatable" class="table table-bordered table-striped">
+          <table id="datatable" class="table table-bordered table-striped tablas">
             <thead>
               <tr>
                 <th style="width: 10px;">#</th>
@@ -66,7 +66,9 @@
                           <td>$ '.number_format($value["total"],2).'</td>
                           <td>'.$value["fecha"].'</td>      
                           <td>
-                            <button class="btn btn-info"><i class="fas fa-print"></i></button>
+                            <button class="btn btn-info btnImprimirFactura" codigoVenta="'.$value["codigo"].'">
+                              <i class="fas fa-print"></i>
+                            </button>
 
                             <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'">
                               <i class="fas fa-pencil-alt"></i>

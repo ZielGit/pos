@@ -406,8 +406,7 @@ function listarMetodos(){
 }
 
 // Boton editar venta
-// $(".tablas").on("click", ".btnEditarVenta", function(){
-$(".btnEditarVenta").click(function () {
+$(".tablas").on("click", ".btnEditarVenta", function(){
 	var idVenta = $(this).attr("idVenta");
 	window.location = "index.php?ruta=editar-venta&idVenta="+idVenta;
 })
@@ -438,8 +437,7 @@ $('.tablaVentas').on( 'draw.dt', function(){
 })
 
 // Eliminar Venta
-// $(".tablas").on("click", ".btnEliminarVenta", function(){
-$(".btnEliminarVenta").click(function () {
+$(".tablas").on("click", ".btnEliminarVenta", function(){
     var idVenta = $(this).attr("idVenta");
     Swal.fire({
         title: '¿Está seguro de borrar la venta?',
@@ -455,4 +453,10 @@ $(".btnEliminarVenta").click(function () {
             window.location = "index.php?ruta=ventas&idVenta="+idVenta;
         }
     })
+})
+
+// Imprimir Venta
+$(".tablas").on("click", ".btnImprimirFactura", function(){
+    var codigoVenta = $(this).attr("codigoVenta");
+	window.open("public/plugins/tcpdf/examples/factura.php?codigo="+codigoVenta, "_blank");
 })
