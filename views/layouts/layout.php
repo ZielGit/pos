@@ -16,10 +16,11 @@ session_start();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
+  <!-- Daterange Picker -->
+  <link rel="stylesheet" href="public/plugins/daterangepicker/daterangepicker.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="public/plugins/icheck-1.0.3/skins/all.css">
   <!-- DataTables -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css"> -->
   <link rel="stylesheet" href="public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
@@ -34,6 +35,8 @@ session_start();
   <!-- InputMask -->
   <script src="public/plugins/moment/moment.min.js"></script>
   <script src="public/plugins/inputmask/jquery.inputmask.min.js"></script>
+  <!-- date-range-picker -->
+  <script src="public/plugins/daterangepicker/daterangepicker.js"></script>
   <!-- AdminLTE App -->
   <script src="public/dist/js/adminlte.min.js"></script>
   <!-- Sweet Alert 2 -->
@@ -96,8 +99,6 @@ session_start();
   <!-- /.control-sidebar -->
 
 <!-- DataTables  & Plugins -->
-<!-- <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script> -->
 <script src="public/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="public/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>

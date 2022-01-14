@@ -22,11 +22,27 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <a href="crear-venta">
-            <button class="btn btn-primary">
-              Agregar Venta
-            </button>
-          </a>
+          <div class="row">
+            <div class="col-sm-6">
+              <a href="crear-venta">
+                <button class="btn btn-primary">
+                  Agregar Venta
+                </button>
+              </a>
+            </div>
+            <div class="col-sm-6">
+              <!-- Date and time range -->
+              <div class="form-group float-right">
+                <div class="input-group">
+                  <button type="button" class="btn btn-default float-right" id="daterange-btn">
+                    <i class="far fa-calendar-alt"></i> Rango de fecha
+                    <i class="fas fa-caret-down"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.form group -->
+            </div>
+          </div>
         </div>
         <div class="card-body">
           <table id="datatable" class="table table-bordered table-striped tablas">
@@ -45,9 +61,15 @@
             </thead>
             <tbody>
               <?php
-                $item = null;
-                $valor = null;
-                $ventas = SaleController::MostrarVentas($item, $valor);
+                if (isset($_GET["fechaInicial"])) {
+                  $fechaInicial = $_GET["fechaInicial"];
+                  $fechaFinal = $_GET["fechaFinal"];
+                } else {
+                  $fechaInicial = null;
+                  $fechaFinal = null;
+                }
+                
+                $ventas = SaleController::RangoFechasVentas($fechaInicial, $fechaFinal);
 
                 foreach ($ventas as $key => $value) {
                   echo '<tr>

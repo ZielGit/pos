@@ -253,4 +253,11 @@ class SaleController{
 			}
 		}
 	}
+
+	// Rango de Fechas
+	static public function RangoFechasVentas($fechaInicial, $fechaFinal){
+		$tabla = "ventas";
+		$respuesta = Sale::RangoFechasVentas($tabla, $fechaInicial, $fechaFinal);
+		return $respuesta;
+	}
 }
