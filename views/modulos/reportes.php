@@ -22,25 +22,44 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
+          <!-- Date and time range -->
+          <div class="form-group">
+            <div class="input-group">
+              <button type="button" class="btn btn-default float-right" id="daterange-btn2">
+                <i class="far fa-calendar-alt"></i> Rango de fecha
+                <i class="fas fa-caret-down"></i>
+              </button>
+            </div>
           </div>
+          <!-- /.form group -->
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+          <div class="row">
+            <div class="col-12">
+              <?php
+                include "reportes/grafico_ventas.php";
+              ?>
+            </div>
+            <div class="col-md-6 col-12">
+              <?php
+                include "reportes/productos-mas-vendidos.php";
+              ?>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="col">
+                <?php
+                  include "reportes/vendedores.php";
+                ?>
+              </div>
+              <div class="col">
+                <?php
+                  include "reportes/compradores.php";
+                ?>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
       </div>
       <!-- /.card -->
 

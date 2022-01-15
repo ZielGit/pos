@@ -5,14 +5,14 @@ require_once "conexion.php";
 class Product{
 
     // Mostrar Produtos
-    static public function MostrarProductos($tabla, $item, $valor){
+    static public function MostrarProductos($tabla, $item, $valor, $orden){
         if ($item != null) {
             $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
             $stmt->bindParam(":".$item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();
         } else {
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
             $stmt->execute();
             return $stmt->fetchAll();
         }
@@ -77,6 +77,14 @@ class Product{
 		}else{
 			return "error";	
 		}
+		$stmt = null;
+	}
+
+	// Mostrar Suma Ventas
+	static public function MostrarSumaVentas($tabla){
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(ventas) as total FROM $tabla");
+		$stmt -> execute();
+		return $stmt -> fetch();
 		$stmt = null;
 	}
 }

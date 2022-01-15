@@ -14,7 +14,8 @@ class AjaxProductos{
     public function ajaxCrearCodigoProducto(){
         $item = "id_categoria";
         $valor = $this->idCategoria;
-        $respuesta = ProductController::MostrarProductos($item, $valor);
+        $orden = "id";
+        $respuesta = ProductController::MostrarProductos($item, $valor, $orden);
         echo json_encode($respuesta);
     }
 
@@ -27,17 +28,20 @@ class AjaxProductos{
         if ($this->traerProductos == "ok") {
             $item = null;
             $valor = null;
-            $respuesta = ProductController::MostrarProductos($item, $valor);
+            $orden = "id";
+            $respuesta = ProductController::MostrarProductos($item, $valor, $orden);
             echo json_encode($respuesta);
         } else if ($this->nombreProducto != "") {
             $item = "descripcion";
             $valor = $this->nombreProducto;
-            $respuesta = ProductController::MostrarProductos($item, $valor);
+            $orden = "id";
+            $respuesta = ProductController::MostrarProductos($item, $valor, $orden);
             echo json_encode($respuesta);
         } else {
             $item = "id";
             $valor = $this->idProducto;
-            $respuesta = ProductController::MostrarProductos($item, $valor);
+            $orden = "id";
+            $respuesta = ProductController::MostrarProductos($item, $valor, $orden);
             echo json_encode($respuesta);
         }
     }

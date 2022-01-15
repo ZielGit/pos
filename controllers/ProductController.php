@@ -3,9 +3,9 @@
 class ProductController{
 
     // Mostrar Productos
-    static public function MostrarProductos($item, $valor){
+    static public function MostrarProductos($item, $valor, $orden){
         $tabla = "productos";
-        $respuesta = Product::MostrarProductos($tabla, $item, $valor);
+        $respuesta = Product::MostrarProductos($tabla, $item, $valor, $orden);
         return $respuesta;
     }
 
@@ -66,7 +66,7 @@ class ProductController{
                             confirmButtonText: "Cerrar"
                         }).then(function(result){
                             if(result.value){
-                                window.location = "productos";
+                               // window.location = "productos";
                             }
                         });
 					</script>';
@@ -195,5 +195,12 @@ class ProductController{
                 </script>';
             }
         }
+    }
+
+    // Mostrar Suma Ventas
+    static public function MostrarSumaVentas(){
+        $tabla = "productos";
+		$respuesta = Product::MostrarSumaVentas($tabla);
+		return $respuesta;
     }
 }

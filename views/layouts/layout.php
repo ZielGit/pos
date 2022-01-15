@@ -45,6 +45,11 @@ session_start();
   <script src="public/plugins/icheck-1.0.3/icheck.min.js"></script>
   <!-- JQuery Number 2.1.6 -->
   <script src="public/plugins/jquery-number/jquery.number.min.js"></script>
+  <!-- Morris.js 0.5.1 -->
+  <script src="public/plugins/raphael/raphael.min.js"></script>
+  <script src="public/plugins/morris.js/morris.min.js"></script>
+  <!-- ChartJS -->
+  <script src="public/plugins/chart.js/Chart.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -119,6 +124,7 @@ session_start();
 <script src="public/js/productos.js"></script>
 <script src="public/js/clientes.js"></script>
 <script src="public/js/ventas.js"></script>
+<script src="public/js/reportes.js"></script>
 <script>
   $(document).ready(function(){
     // Inicializar iCheck

@@ -9,7 +9,8 @@ class TablaProductosVentas{
     public function mostrarTablaProductosVentas(){
         $item = null;
     	$valor = null;
-  		$productos = ProductController::MostrarProductos($item, $valor);
+        $orden = "id";
+  		$productos = ProductController::MostrarProductos($item, $valor, $orden);
 
         if(count($productos) == 0){
             echo '{"data": []}';

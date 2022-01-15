@@ -12,7 +12,8 @@ class TablaProductos{
     public function mostrarTablaProductos(){
         $item = null;
         $valor = null;
-        $productos = ProductController::MostrarProductos($item, $valor);
+        $orden = "id";
+        $productos = ProductController::MostrarProductos($item, $valor, $orden);
         
         $datosJson = '{
             "data": [';

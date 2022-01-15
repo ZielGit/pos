@@ -21,7 +21,9 @@
           </button>
         </div>
         <div class="card-body">
-
+        <?php
+          print_r($_POST);
+        ?>
           <table class="table table-bordered table-striped tablaProductos">
             <thead>
               <tr>

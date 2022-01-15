@@ -88,7 +88,8 @@
                       foreach ($listaProducto as $key => $value) {
                         $item = "id";
                         $valor = $value["id"];
-                        $respuesta = ProductController::MostrarProductos($item, $valor);
+                        $orden = "id";
+                        $respuesta = ProductController::MostrarProductos($item, $valor, $orden);
                         $stockAntiguo = $respuesta["stock"] + $value["cantidad"];
                         echo '<div class="row mt-1">
                             <div class="col-md-6 mb-1">
