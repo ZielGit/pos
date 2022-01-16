@@ -22,16 +22,35 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <!-- Date and time range -->
-          <div class="form-group">
-            <div class="input-group">
-              <button type="button" class="btn btn-default float-right" id="daterange-btn2">
-                <i class="far fa-calendar-alt"></i> Rango de fecha
-                <i class="fas fa-caret-down"></i>
-              </button>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- Date and time range -->
+              <div class="form-group">
+                <div class="input-group">
+                  <button type="button" class="btn btn-default float-right" id="daterange-btn2">
+                    <i class="far fa-calendar-alt"></i> Rango de fecha
+                    <i class="fas fa-caret-down"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.form group -->
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group float-right">
+                <?php 
+                  if (isset($_GET["fechaInicial"])) {
+                    echo '<a href="views/modulos/descargar-reporte.php?reporte=reporte&fechaInicial='.$_GET["fechaInicial"].'&fechaFinal='.$_GET["fechaFinal"].'">';
+                  } else {
+                    echo '<a href="views/modulos/descargar-reporte.php?reporte=reporte">';
+                  }
+                ?>
+                  <button class="btn btn-success float-right">
+                    Descargar reporte en Excel
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
-          <!-- /.form group -->
         </div>
         <div class="card-body">
           <div class="row">
