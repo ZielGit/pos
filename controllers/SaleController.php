@@ -21,7 +21,8 @@ class SaleController{
 				$tablaProductos = "productos";
 				$item = "id";
 				$valor = $value["id"];
-				$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor);
+				$orden = "id";
+				$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor, $orden);
 				$item1a = "ventas";
 				$valor1a = $value["cantidad"] + $traerProducto["ventas"];
 				$nuevasVentas = Product::ActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
@@ -99,7 +100,8 @@ class SaleController{
 					$tablaProductos = "productos";
 					$item = "id";
 					$valor = $value["id"];
-					$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor);
+					$orden = "id";
+					$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor, $orden);
 					$item1a = "ventas";
 					$valor1a = $traerProducto["ventas"] - $value["cantidad"];
 					$nuevasVentas = Product::ActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
@@ -122,7 +124,8 @@ class SaleController{
 					$tablaProductos_2 = "productos";
 					$item_2 = "id";
 					$valor_2 = $value["id"];
-					$traerProducto_2 = Product::MostrarProductos($tablaProductos_2, $item_2, $valor_2);
+					$orden = "id";
+					$traerProducto_2 = Product::MostrarProductos($tablaProductos_2, $item_2, $valor_2, $orden);
 					$item1a_2 = "ventas";
 					$valor1a_2 = $value["cantidad"] + $traerProducto_2["ventas"];
 					$nuevasVentas_2 = Product::ActualizarProducto($tablaProductos_2, $item1a_2, $valor1a_2, $valor_2);
@@ -219,7 +222,8 @@ class SaleController{
 				$tablaProductos = "productos";
 				$item = "id";
 				$valor = $value["id"];
-				$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor);
+				$orden = "id";
+				$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor,$orden);
 				$item1a = "ventas";
 				$valor1a = $traerProducto["ventas"] - $value["cantidad"];
 				$nuevasVentas = Product::ActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
