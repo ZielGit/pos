@@ -334,4 +334,11 @@ class SaleController{
 			echo "</table>";
 		}
 	}
+
+	// Suma Total de Ventas
+	static public function SumaTotalVentas(){
+		$tabla = "ventas";
+		$respuesta = Sale::SumaTotalVentas($tabla);
+		return $respuesta;
+	}
 }

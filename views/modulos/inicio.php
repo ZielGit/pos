@@ -12,32 +12,34 @@
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <?php
+            include "inicio/stat-box.php";
+          ?>
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <?php
+              include "reportes/grafico_ventas.php";
+            ?>
+          </div>
+          <div class="col-lg-6">
+            <?php
+              include "reportes/productos-mas-vendidos.php";
+            ?>
+          </div>
+          <div class="col-lg-6">
+            <?php
+              include "inicio/productos-recientes.php";
+            ?>
           </div>
         </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>

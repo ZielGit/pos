@@ -98,4 +98,12 @@ class Sale{
 			return $stmt -> fetchAll();
 		}
 	}
+
+	// Sumar el Total de Ventas
+	static public function SumaTotalVentas($tabla){	
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(neto) as total FROM $tabla");
+		$stmt -> execute();
+		return $stmt -> fetch();
+		$stmt = null;
+	}
 }
