@@ -16,7 +16,9 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <?php
-            include "inicio/stat-box.php";
+            if ($_SESSION["perfil"] =="Administrador") {
+              include "inicio/stat-box.php";
+            }
           ?>
         </div>
         <!-- /.row -->
@@ -24,17 +26,36 @@
         <div class="row">
           <div class="col-lg-12">
             <?php
-              include "reportes/grafico_ventas.php";
+              if ($_SESSION["perfil"] =="Administrador") {
+                include "reportes/grafico_ventas.php";
+              }
             ?>
           </div>
           <div class="col-lg-6">
             <?php
-              include "reportes/productos-mas-vendidos.php";
+              if ($_SESSION["perfil"] =="Administrador") {
+                include "reportes/productos-mas-vendidos.php";
+              }
             ?>
           </div>
           <div class="col-lg-6">
             <?php
-              include "inicio/productos-recientes.php";
+              if ($_SESSION["perfil"] =="Administrador") {
+                include "inicio/productos-recientes.php";
+              }
+            ?>
+          </div>
+          <div class="col-lg-12">
+            <?php
+              if ($_SESSION["perfil"] =="Especial" || $_SESSION["perfil"] =="Vendedor") {
+                echo '
+                  <div class="card card-success card-outline">
+                    <div class="card-header">
+                      <h1>Bienvenid@ '.$_SESSION["nombre"].'</h1>
+                    </div>
+                  </div>
+                ';
+              }
             ?>
           </div>
         </div>

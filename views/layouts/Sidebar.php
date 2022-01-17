@@ -39,81 +39,105 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="inicio" class="nav-link">
-                        <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Inicio
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="usuarios" class="nav-link">
-                        <i class="nav-icon fas fa-user-tag"></i>
-                        <p>
-                            Usuarios
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="categorias" class="nav-link">
-                        <i class="nav-icon fas fa-tags"></i>
-                        <p>
-                            Categorías
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="productos" class="nav-link">
-                        <i class="nav-icon fas fa-boxes"></i>
-                        <p>
-                            Productos
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="clientes" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Clientes
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-shopping-cart"></i>
-                        <p>
-                            Ventas
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="ventas" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    Administrar Ventas
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="crear-venta" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    Crear Venta
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="reportes" class="nav-link">
-                                <i class="fas fa-chart-line nav-icon"></i>
-                                <p>
-                                    Reporte de Ventas
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <?php
+                    if ($_SESSION["perfil"] == "Administrador") {
+                        echo '
+                            <li class="nav-item">
+                                <a href="inicio" class="nav-link">
+                                    <i class="nav-icon fas fa-home"></i>
+                                    <p>
+                                        Inicio
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="usuarios" class="nav-link">
+                                    <i class="nav-icon fas fa-user-tag"></i>
+                                    <p>
+                                        Usuarios
+                                    </p>
+                                </a>
+                            </li>
+                        ';
+                    }
+                
+                    if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial") {
+                        echo '
+                            <li class="nav-item">
+                                <a href="categorias" class="nav-link">
+                                    <i class="nav-icon fas fa-tags"></i>
+                                    <p>
+                                        Categorías
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="productos" class="nav-link">
+                                    <i class="nav-icon fas fa-boxes"></i>
+                                    <p>
+                                        Productos
+                                    </p>
+                                </a>
+                            </li>
+                        ';
+                    }
+
+                    if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor") {
+                        echo '
+                            <li class="nav-item">
+                                <a href="clientes" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Clientes
+                                    </p>
+                                </a>
+                            </li>
+                        ';
+                    }
+                
+                    if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor") {
+                        echo '
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-shopping-cart"></i>
+                                    <p>
+                                        Ventas
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="ventas" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Administrar Ventas
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="crear-venta" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Crear Venta
+                                            </p>
+                                        </a>
+                                    </li>';
+                                    if ($_SESSION["perfil"] == "Administrador") {
+                                        echo '
+                                            <li class="nav-item">
+                                                <a href="reportes" class="nav-link">
+                                                    <i class="fas fa-chart-line nav-icon"></i>
+                                                    <p>
+                                                        Reporte de Ventas
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        ';
+                                    }
+                                echo '</ul>
+                            </li>';          
+                    }
+                ?>
                 <li class="nav-item">
                     <a href="salir" class="nav-link" role="button">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

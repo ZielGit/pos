@@ -6,10 +6,12 @@
 //     }
 // })
 
+var perfilOculto = $("#perfilOculto").val();
+
 $('.tablaProductos').DataTable({
     responsive: true,
     autoWidth: false,
-    "ajax": "ajax/datatable-productos.ajax.php",
+    "ajax": "ajax/datatable-productos.ajax.php?perfilOculto="+perfilOculto,
     "deferRender": true,
 	"retrieve": true,
 	"processing": true,

@@ -1,3 +1,12 @@
+<?php
+if($_SESSION["perfil"] == "Especial"){
+  echo '<script>
+    window.location = "inicio";
+  </script>';
+  return;
+}
+?>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -90,16 +99,20 @@
                           <td>
                             <button class="btn btn-info btnImprimirFactura" codigoVenta="'.$value["codigo"].'">
                               <i class="fas fa-print"></i>
-                            </button>
+                            </button>';
 
-                            <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'">
-                              <i class="fas fa-pencil-alt"></i>
-                            </button>
+                            if ($_SESSION["perfil"] == "Administrador") {
+                              echo '
+                                <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'">
+                                  <i class="fas fa-pencil-alt"></i>
+                                </button>
 
-                            <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'">
-                              <i class="fas fa-times"></i>
-                            </button>
-                          </td>
+                                <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'">
+                                  <i class="fas fa-times"></i>
+                                </button>
+                              ';
+                            }
+                          echo '</td>
                         </tr>';
                 }
               ?>
