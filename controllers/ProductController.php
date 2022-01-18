@@ -17,9 +17,9 @@ class ProductController{
 			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioCompra"]) && preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
                 
                 // Validar imagen
-                $ruta = "public/img/products/default/anonymous.png";   
-
-                if (isset($_FILES["nuevaImagen"]["tmp_name"])){
+                $ruta = ""; 
+                
+                if ($_FILES["nuevaImagen"]["tmp_name"]!=""){
                     list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
                     $nuevoAncho = 500;
 					$nuevoAlto = 500;
@@ -46,6 +46,8 @@ class ProductController{
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 						imagepng($destino, $ruta);
                     }
+                } else {
+                    $ruta = "public/img/products/default/anonymous.png"; 
                 }
                 
                 $tabla = "productos";
@@ -66,7 +68,7 @@ class ProductController{
                             confirmButtonText: "Cerrar"
                         }).then(function(result){
                             if(result.value){
-                               // window.location = "productos";
+                                window.location = "productos";
                             }
                         });
 					</script>';

@@ -60,7 +60,7 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
                           if ($value["foto"] != "") {
                             echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
                           } else {
-                            echo '<td><img src="public/dist/img/avatar5.png" class="img-thumbnail" width="40px"></td>';
+                            echo '<td><img src="public/img/users/default/avatar5.png" class="img-thumbnail" width="40px"></td>';
                           }
                           echo '<td>'.$value["perfil"].'</td>';
                           if ($value["estado"] != 0) {
