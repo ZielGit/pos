@@ -108,7 +108,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="ventas" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fas fa-file-signature nav-icon"></i>
                                             <p>
                                                 Administrar Ventas
                                             </p>
@@ -116,7 +116,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="crear-venta" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fas fa-cart-plus nav-icon"></i>
                                             <p>
                                                 Crear Venta
                                             </p>
