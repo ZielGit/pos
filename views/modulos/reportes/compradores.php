@@ -6,6 +6,7 @@ $ventas = SaleController::MostrarVentas($item, $valor);
 $clientes = ClientController::MostrarClientes($item, $valor);
 $arrayClientes = array();
 $arraylistaClientes = array();
+$sumaTotalClientes = array();
 
 foreach ($ventas as $key => $valueVentas) {
     foreach ($clientes as $key => $valueClientes) {
@@ -21,7 +22,6 @@ foreach ($ventas as $key => $valueVentas) {
             }
         }  
     }
-
 }
 
 #Evitamos repetir nombre

@@ -88,3 +88,5 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
     </section>
     <!-- /.content -->
 </div>
+
+<script src="public/js/reportes.js"></script>

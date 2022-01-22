@@ -264,3 +264,5 @@ if($_SESSION["perfil"] == "Especial"){
   <!-- /.modal-dialog -->
 </div>
 <!-- /.Modal Agregar Cliente -->
+
+<script src="public/js/ventas.js"></script>

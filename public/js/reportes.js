@@ -9,8 +9,8 @@ if(localStorage.getItem("capturarRango2") != null){
 $('#daterange-btn2').daterangepicker(
     {
         ranges   : {
-            'Hoy'       : [moment(), moment()],
-            'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            //'Hoy'       : [moment(), moment()],
+            //'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
             'Últimos 7 días' : [moment().subtract(6, 'days'), moment()],
             'Últimos 30 días': [moment().subtract(29, 'days'), moment()],
             'Este mes'  : [moment().startOf('month'), moment().endOf('month')],
@@ -29,11 +29,14 @@ $('#daterange-btn2').daterangepicker(
     }
 )
 
+// Agregando clase a daterangepicker
+// $(".daterangepicker").addClass("left");
+
 // Cancelar Rango de Fechas
-$(".daterangepicker.opensright .range_inputs .cancelBtn").on("click", function(){
-	localStorage.removeItem("capturarRango2");
-	localStorage.clear();
-	window.location = "reportes";
+$(".daterangepicker .drp-buttons .cancelBtn").on("click", function(){
+    localStorage.removeItem("capturarRango2");
+    localStorage.clear();
+    window.location = "reportes";
 })
 
 // Capturar Hoy

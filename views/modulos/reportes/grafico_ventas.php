@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(0);
+ error_reporting(0);
 
 if (isset($_GET["fechaInicial"])) {
     $fechaInicial = $_GET["fechaInicial"];
@@ -23,13 +23,13 @@ foreach ($respuesta as $key => $value) {
     # Capturamos las ventas
     $arrayVentas = array($fecha => $value["total"]);
     # Sumamos los pagos que ocurrieron el mismo mes
-    foreach ($arrayVentas as $key => $value) {
-		$sumaPagosMes[$key] += $value;
+    foreach ($arrayVentas as $fecha => $value) {
+		$sumaPagosMes[$fecha] += $value;
 	}
 }
 
 $noRepetirFechas = array_unique($arrayFechas);
-var_dump($noRepetirFechas);
+
 ?>
 
 <!-- Grafico de ventas -->

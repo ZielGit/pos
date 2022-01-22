@@ -474,14 +474,14 @@ $(".tablas").on("click", ".btnImprimirFactura", function(){
 $('#daterange-btn').daterangepicker(
     {
         ranges   : {
-            'Hoy'       : [moment(), moment()],
-            'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            //'Hoy'       : [moment(), moment()],
+            //'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
             'Últimos 7 Días' : [moment().subtract(6, 'days'), moment()],
             'Últimos 30 Días': [moment().subtract(29, 'days'), moment()],
             'Este Mes'  : [moment().startOf('month'), moment().endOf('month')],
             'Último Mes'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
         },
-        startDate: moment(),//.subtract(29, 'days'),//quitar substrar pero se tiee que capturar hoy
+        startDate: moment().subtract(29, 'days'),//quitar substrar pero se tiene que capturar hoy
         endDate  : moment()
     },
     function (start, end) {
@@ -495,12 +495,16 @@ $('#daterange-btn').daterangepicker(
     }
 )
 
+// Agregando clase a daterangepicker
+$(".daterangepicker").addClass("right");
+// $(".daterangepicker").removeClass("left");
+
 // Cancelar Rango de Fechas
-// $(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
-// 	localStorage.removeItem("capturarRango");
-// 	localStorage.clear();
-// 	window.location = "ventas";
-// })
+$(".daterangepicker.right .drp-buttons .cancelBtn").on("click", function(){
+    localStorage.removeItem("capturarRango");
+    localStorage.clear();
+    window.location = "ventas";
+})
 
 // Capturar Hoy
 $(".daterangepicker .ranges li").on("click", function(){

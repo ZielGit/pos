@@ -6,6 +6,7 @@ $ventas = SaleController::MostrarVentas($item, $valor);
 $usuarios = UserController::MostrarUsuario($item, $valor);
 $arrayVendedores = array();
 $arraylistaVendedores = array();
+$sumaTotalVendedores = array();
 
 foreach ($ventas as $key => $valueVentas) {
 

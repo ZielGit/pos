@@ -64,7 +64,7 @@ class Sale{
 		if($stmt -> execute()){
 			return "ok";
 		}else{
-			return "error";	
+			return "error"; 
 		}
 		$stmt = null;
 	}
@@ -74,8 +74,9 @@ class Sale{
 		if($fechaInicial == null){
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id ASC");
 			$stmt -> execute();
-			return $stmt -> fetchAll();	
+			return $stmt -> fetchAll(); 
 		}else if($fechaInicial == $fechaFinal){
+			// Sin función por el momento
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha like '%$fechaFinal%'");
 			$stmt->bindParam(":fecha", $fechaFinal, PDO::PARAM_STR);
 			$stmt->execute();
@@ -100,7 +101,7 @@ class Sale{
 	}
 
 	// Sumar el Total de Ventas
-	static public function SumaTotalVentas($tabla){	
+	static public function SumaTotalVentas($tabla){ 
 		$stmt = Conexion::conectar()->prepare("SELECT SUM(neto) as total FROM $tabla");
 		$stmt -> execute();
 		return $stmt -> fetch();

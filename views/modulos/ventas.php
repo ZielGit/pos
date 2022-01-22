@@ -130,3 +130,5 @@ if($_SESSION["perfil"] == "Especial"){
     </section>
     <!-- /.content -->
 </div>
+
+<script src="public/js/ventas.js"></script>
