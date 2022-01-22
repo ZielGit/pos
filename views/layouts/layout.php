@@ -26,6 +26,8 @@ session_start();
   <link rel="stylesheet" href="public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="public/dist/css/adminlte.css">
+  <!-- Morris.js -->
+  <link rel="stylesheet" href="public/plugins/morris.js/morris.css">
 
   <!-- Plugins -->
   <!-- jQuery -->

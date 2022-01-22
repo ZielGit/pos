@@ -1,39 +1,37 @@
 <?php
+    error_reporting(0);
 
- error_reporting(0);
+    if (isset($_GET["fechaInicial"])) {
+        $fechaInicial = $_GET["fechaInicial"];
+        $fechaFinal = $_GET["fechaFinal"];
+    } else {
+        $fechaInicial = null;
+        $fechaFinal = null;
+    }
 
-if (isset($_GET["fechaInicial"])) {
-    $fechaInicial = $_GET["fechaInicial"];
-    $fechaFinal = $_GET["fechaFinal"];
-} else {
-    $fechaInicial = null;
-    $fechaFinal = null;
-}
+    $respuesta = SaleController::RangoFechasVentas($fechaInicial, $fechaFinal);
+    $arrayFechas = array();
+    $arrayVentas = array();
+    $sumaPagosMes = array();
 
-$respuesta = SaleController::RangoFechasVentas($fechaInicial, $fechaFinal);
-$arrayFechas = array();
-$arrayVentas = array();
-$sumaPagosMes = array();
+    foreach ($respuesta as $key => $value) {
+        # Capturamos sólo el año y el mes
+        $fecha = substr($value["fecha"],0,7);
+        # Introducir las fechas en arrayFechas
+        array_push($arrayFechas, $fecha);
+        # Capturamos las ventas
+        $arrayVentas = array($fecha => $value["total"]);
+        # Sumamos los pagos que ocurrieron el mismo mes
+        foreach ($arrayVentas as $fecha => $value) {
+            $sumaPagosMes[$fecha] += $value;
+        }
+    }
 
-foreach ($respuesta as $key => $value) {
-    # Capturamos sólo el año y el mes
-    $fecha = substr($value["fecha"],0,7);
-    # Introducir las fechas en arrayFechas
-    array_push($arrayFechas, $fecha);
-    # Capturamos las ventas
-    $arrayVentas = array($fecha => $value["total"]);
-    # Sumamos los pagos que ocurrieron el mismo mes
-    foreach ($arrayVentas as $fecha => $value) {
-		$sumaPagosMes[$fecha] += $value;
-	}
-}
-
-$noRepetirFechas = array_unique($arrayFechas);
-
+    $noRepetirFechas = array_unique($arrayFechas);
 ?>
 
 <!-- Grafico de ventas -->
-<div class="card bg-gradient-info">
+<div class="card bg-gradient-default">
     <div class="card-header">
         <h3 class="card-title">
             <i class="fas fa-th mr-1"></i> Grafico de Ventas
@@ -63,14 +61,14 @@ var line = new Morris.Line({
     xkey             : 'y',
     ykeys            : ['ventas'],
     labels           : ['ventas'],
-    lineColors       : ['#efefef'],
+    lineColors       : ['#065AA6'],
     lineWidth        : 2,
     hideHover        : 'auto',
-    gridTextColor    : '#fff',
+    gridTextColor    : '#03203B',
     gridStrokeWidth  : 0.4,
     pointSize        : 4,
-    pointStrokeColors: ['#efefef'],
-    gridLineColor    : '#efefef',
+    pointStrokeColors: ['#065AA6'],
+    gridLineColor    : '#03203B',
     gridTextFamily   : 'Open Sans',
     preUnits         : '$',
     gridTextSize     : 10
