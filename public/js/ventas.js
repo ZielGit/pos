@@ -495,12 +495,8 @@ $('#daterange-btn').daterangepicker(
     }
 )
 
-// Agregando clase a daterangepicker
-$(".daterangepicker").addClass("right");
-// $(".daterangepicker").removeClass("left");
-
 // Cancelar Rango de Fechas
-$(".daterangepicker.right .drp-buttons .cancelBtn").on("click", function(){
+$(".daterangepicker .drp-buttons .cancelBtn").on("click", function(){
     localStorage.removeItem("capturarRango");
     localStorage.clear();
     window.location = "ventas";

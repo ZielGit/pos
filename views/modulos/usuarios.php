@@ -30,9 +30,6 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
           </button>
         </div>
         <div class="card-body">
-        <?php
-          print_r($_POST);
-        ?>
           <table id="datatable" class="table table-bordered table-striped">
             <thead>
               <tr>
