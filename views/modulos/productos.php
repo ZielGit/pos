@@ -93,7 +93,7 @@ if($_SESSION["perfil"] == "Vendedor"){
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-code"></i></span>
             </div>
-            <input type="text" class="form-control" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código" readonly required>
+            <input type="text" class="form-control" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código de Barras" required>
           </div>
 
           <div class="input-group mb-3">
