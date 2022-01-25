@@ -24,6 +24,8 @@ session_start();
   <link rel="stylesheet" href="public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="public/plugins/select2/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="public/dist/css/adminlte.css">
   <!-- Morris.js -->
@@ -34,6 +36,8 @@ session_start();
   <script src="public/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Select2 -->
+  <script src="public/plugins/select2/js/select2.full.min.js"></script>
   <!-- InputMask -->
   <script src="public/plugins/moment/moment.min.js"></script>
   <script src="public/plugins/inputmask/jquery.inputmask.min.js"></script>
@@ -128,6 +132,9 @@ session_start();
 <!-- <script src="public/js/reportes.js"></script> -->
 <script>
   $(document).ready(function(){
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
     // Inicializar iCheck
     $('input[type=radio],input[type=checkbox]').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
