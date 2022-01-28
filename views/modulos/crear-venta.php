@@ -69,7 +69,7 @@ if($_SESSION["perfil"] == "Especial"){
                       <span class="input-group-text"><i class="fas fa-users"></i></span>
                     </div>
                     <select class="form-control select2" name="seleccionarCliente" id="seleccionarCliente" required>
-                      <option value="">Selecionar Cliente</option>
+                      <option value="" selected disabled>Selecionar Cliente</option>
                       <?php
                         $item = null;
                         $valor = null;

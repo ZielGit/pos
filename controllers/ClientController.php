@@ -27,7 +27,7 @@ class ClientController{
                             confirmButtonText: "Cerrar"
                         }).then(function(result){
                             if(result.value){
-                                window.location = "clientes";
+                                window.history.back();
                             }
                         });
 					</script>';
