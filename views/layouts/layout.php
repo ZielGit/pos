@@ -69,6 +69,8 @@ session_start();
   <script src="public/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
   <script src="public/plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="public/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+  <!-- JsBarcode 3.11.5 -->
+  <script src="public/plugins/JsBarcode/JsBarcode.all.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 

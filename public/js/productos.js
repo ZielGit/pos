@@ -9,8 +9,22 @@
 var perfilOculto = $("#perfilOculto").val();
 
 $('.tablaProductos').DataTable({
-    responsive: true,
-    autoWidth: false,
+    "responsive": true, "lengthChange": true, "autoWidth": false,
+    // dom: 'Bfrtip',
+    // buttons:{
+    //     dom:{
+    //         button:{
+    //             className: 'btn'
+    //         }
+    //     },
+    //     buttons: [
+    //         {
+    //             extend:"excel",
+    //             text: "Exportar a Excel",
+    //             className: "btn btn-success"
+    //         }
+    //     ],
+    // },
     "ajax": "ajax/datatable-productos.ajax.php?perfilOculto="+perfilOculto,
     "deferRender": true,
 	"retrieve": true,
@@ -38,8 +52,9 @@ $('.tablaProductos').DataTable({
             "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
         }
-	}
-});
+	},
+    //"buttons": ["excel"],
+}).buttons().container().appendTo('.tablaProductos_wrapper .col-md-6:eq(0)');
 
 // Capturando la categoria para asignar código
 // $("#nuevaCategoria").change(function () {
@@ -65,6 +80,33 @@ $('.tablaProductos').DataTable({
 //         }
 //     })
 // })
+
+// Numeros Aleatorios
+function codigo_random(min, max){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (1 + max - min) + min);
+}
+
+// Generar codigo de barras aleatorios
+$("#GenerarCodigo").click(function () {
+    // Si existe codigo de barras vaciarlo
+    $("#codigoBarras").empty();
+    resultado = codigo_random(1000000000000,9999999999999);
+    $("#nuevoCodigo").val(resultado);
+    $("#codigoBarras").append(
+        '<svg id="barcode" class="col"></svg>'
+    );
+    var barcodeValue = $("#nuevoCodigo").val();
+    JsBarcode("#barcode", barcodeValue, {
+             
+        displayValue: true,
+        lineColor: "#24292e",
+        width:2,
+        height:40,	
+        fontSize: 20					
+      });	
+})
 
 // Agregando precio venta
 $("#nuevoPrecioCompra, #editarPrecioCompra").change(function(){

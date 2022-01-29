@@ -76,7 +76,7 @@ if($_SESSION["perfil"] == "Vendedor"){
               <span class="input-group-text"><i class="fas fa-tags"></i></span>
             </div>
             <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" required>
-              <option value="">Selecionar Categoria</option>
+              <option value="" selected disabled>Selecionar Categoria</option>
               <?php
                 $item = null;
                 $valor = null;
@@ -91,9 +91,18 @@ if($_SESSION["perfil"] == "Vendedor"){
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-code"></i></span>
+              <span class="input-group-text"><i class="fas fa-barcode"></i></span>
             </div>
             <input type="text" class="form-control" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar Código de Barras" required>
+            <span class="input-group-append">
+              <button id="GenerarCodigo" type="button" class="btn btn-success btn-flat">
+                Generar Codigo
+              </button>
+            </span>
+          </div>
+
+          <div id="codigoBarras">
+            
           </div>
 
           <div class="input-group mb-3">
@@ -201,7 +210,7 @@ if($_SESSION["perfil"] == "Vendedor"){
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-code"></i></span>
+              <span class="input-group-text"><i class="fas fa-barcode"></i></span>
             </div>
             <input type="text" class="form-control" id="editarCodigo" name="editarCodigo" readonly required>
           </div>
