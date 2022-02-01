@@ -1,13 +1,12 @@
 <?php
-
-$item = null;
-$valor = null;
-$orden = "ventas";
-$productos = ProductController::MostrarProductos($item, $valor, $orden);
-$colores = array("red","green","yellow","aqua","purple","blue","cyan","magenta","orange","gold");
-$totalVentas = ProductController::MostrarSumaVentas();
-
+    $item = null;
+    $valor = null;
+    $orden = "ventas";
+    $productos = ProductController::MostrarProductos($item, $valor, $orden);
+    $colores = array("red","green","yellow","aqua","purple","blue","cyan","magenta","orange","gold");
+    $totalVentas = ProductController::MostrarSumaVentas();
 ?>
+
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Productos más Vendidos</h3>
@@ -58,69 +57,53 @@ $totalVentas = ProductController::MostrarSumaVentas();
 <!-- /.card -->
 
 <script>
-//-------------
-// - PIE CHART -
-//-------------
-// Get context with jQuery - using jQuery's .get() method.
-var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-var pieData = {
-    labels: [
-        <?php
-            for ($i=0; $i < 10; $i++) { 
-                echo "'".$productos[$i]["descripcion"]."',";
-            } 
-        ?>
-    ],
-    datasets: [
-    {
-        data: [
+    //-------------
+    // - PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData = {
+        labels: [
             <?php
                 for ($i=0; $i < 10; $i++) { 
-                    echo "
-                        ".$productos[$i]["ventas"].",
-                    ";
+                    echo "'".$productos[$i]["descripcion"]."',";
                 } 
             ?>
         ],
-        backgroundColor: [
-            <?php
-                for ($i=0; $i < 10; $i++) { 
-                    echo "'".$colores[$i]."',";
-                } 
-            ?>
+        datasets: [
+            {
+                data: [
+                    <?php
+                        for ($i=0; $i < 10; $i++) { 
+                            echo "".$productos[$i]["ventas"].",";
+                        } 
+                    ?>
+                ],
+                backgroundColor: [
+                    <?php
+                        for ($i=0; $i < 10; $i++) { 
+                            echo "'".$colores[$i]."',";
+                        } 
+                    ?>
+                ]
+            }
         ]
-        // data: [700, 500, 400, 600, 300, 100],
-        // backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de']
     }
-    ]
-    // <?php
-    //     echo "labels: [".$productos."]";
-    //     for($i = 0; $i < 10; $i++){
-    //         // echo "{
-    //         //   value    : ".$productos[$i]["ventas"].",
-    //         //   color    : '".$colores[$i]."',
-    //         //   highlight: '".$colores[$i]."',
-    //         //   label    : '".$productos[$i]["descripcion"]."'
-    //         // },";
-    //         echo "";
-    //     }
-    // ?>,
-}
-var pieOptions = {
-    legend: {
-    display: false
+    var pieOptions = {
+        legend: {
+            display: false
+        }
     }
-}
-// Create pie or douhnut chart
-// You can switch between pie and douhnut using the method below.
-// eslint-disable-next-line no-unused-vars
-var pieChart = new Chart(pieChartCanvas, {
-    type: 'doughnut',
-    data: pieData,
-    options: pieOptions
-})
+    // Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    // eslint-disable-next-line no-unused-vars
+    var pieChart = new Chart(pieChartCanvas, {
+        type: 'doughnut',
+        data: pieData,
+        options: pieOptions
+    })
 
-//-----------------
-// - END PIE CHART -
-//-----------------
+    //-----------------
+    // - END PIE CHART -
+    //-----------------
 </script>
