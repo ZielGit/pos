@@ -1,10 +1,10 @@
 <?php
-if($_SESSION["perfil"] == "Vendedor"){
-  echo '<script>
-    window.location = "inicio";
-  </script>';
-  return;
-}
+  if($_SESSION["perfil"] == "Vendedor"){
+    echo '<script>
+      window.location = "inicio";
+    </script>';
+    return;
+  }
 ?>
 
 <div class="content-wrapper">
@@ -59,10 +59,10 @@ if($_SESSION["perfil"] == "Vendedor"){
 </div>
 
 <!-- Modal Agregar Producto -->
-<div class="modal fade" id="modalAgregarProducto" role="dialog">
+<div class="modal fade Imprimir" id="modalAgregarProducto" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="" role="form" method="post" enctype="multipart/form-data">
+      <form class="form" action="" role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header">
           <h4 class="modal-title">Agregar Producto</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -101,7 +101,7 @@ if($_SESSION["perfil"] == "Vendedor"){
             </span>
           </div>
 
-          <div id="codigoBarras">
+          <div id="codigoBarras" class="row mb-2">
             
           </div>
 
@@ -294,7 +294,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   </div>
   <!-- /.modal-dialog -->
 </div>
-<!-- Modal Editar Producto-->
+<!-- /.Modal Editar Producto-->
 
 <?php
   $eliminarProducto = new ProductController();

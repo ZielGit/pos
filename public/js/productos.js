@@ -90,7 +90,7 @@ function codigo_random(min, max){
 
 // Generar codigo de barras aleatorios
 $("#GenerarCodigo").click(function () {
-    // Si existe codigo de barras vaciarlo
+    // Si existe codigo de barras, vaciarlo.
     $("#codigoBarras").empty();
     resultado = codigo_random(1000000000000,9999999999999);
     $("#nuevoCodigo").val(resultado);
@@ -105,7 +105,13 @@ $("#GenerarCodigo").click(function () {
         width:2,
         height:40,	
         fontSize: 20					
-      });	
+    });
+})
+
+// Imprimir Codigo de Barras
+$(".tablaProductos tbody").on("click", "button.btnImprimir", function(){
+    var codigo = $(this).attr("codigo");
+	window.open("views/modulos/reportes/barcode.php?codigo="+codigo);
 })
 
 // Agregando precio venta
