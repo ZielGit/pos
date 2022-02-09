@@ -489,7 +489,6 @@ $('#daterange-btn').daterangepicker(
         var fechaInicial = start.format('YYYY-MM-DD');
         var fechaFinal = end.format('YYYY-MM-DD');
         var capturarRango = $('#daterange-btn').html();
-        console.log("capturarRango", capturarRango);
    	    localStorage.setItem("capturarRango", capturarRango);
    	    window.location = "index.php?ruta=ventas&fechaInicial="+fechaInicial+"&fechaFinal="+fechaFinal;
     }
