@@ -1,8 +1,7 @@
 <?php
-
-session_start();
-
+  session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +27,6 @@ session_start();
   <link rel="stylesheet" href="public/plugins/select2/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="public/dist/css/adminlte.css">
-  <!-- Morris.js -->
-  <link rel="stylesheet" href="public/plugins/morris.js/morris.css">
 
   <!-- Plugins -->
   <!-- jQuery -->
@@ -51,9 +48,6 @@ session_start();
   <script src="public/plugins/icheck-1.0.3/icheck.min.js"></script>
   <!-- JQuery Number 2.1.6 -->
   <script src="public/plugins/jquery-number/jquery.number.min.js"></script>
-  <!-- Morris.js 0.5.1 -->
-  <script src="public/plugins/raphael/raphael.min.js"></script>
-  <script src="public/plugins/morris.js/morris.min.js"></script>
   <!-- ChartJS -->
   <script src="public/plugins/chart.js/Chart.min.js"></script>
   <!-- DataTables  & Plugins -->
@@ -75,47 +69,47 @@ session_start();
 <body class="hold-transition sidebar-mini">
 
   <?php
-  if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
-    // <!-- Site wrapper -->
-    echo'<div class="wrapper">';
+    if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
+      // <!-- Site wrapper -->
+      echo'<div class="wrapper">';
 
-    // <!-- Navbar -->
-    include "navbar.php";
-    // <!-- /.navbar -->
+      // <!-- Navbar -->
+      include "navbar.php";
+      // <!-- /.navbar -->
 
-    // <!-- Main Sidebar Container -->
-    include "sidebar.php";
+      // <!-- Main Sidebar Container -->
+      include "sidebar.php";
 
-    // <!-- Content Wrapper. Contains page content -->
-    if(isset($_GET["ruta"])){
-      if($_GET["ruta"] == "inicio" ||
-        $_GET["ruta"] == "usuarios" ||
-        $_GET["ruta"] == "categorias" ||
-        $_GET["ruta"] == "productos" ||
-        $_GET["ruta"] == "clientes" ||
-        $_GET["ruta"] == "ventas" ||
-        $_GET["ruta"] == "crear-venta" ||
-        $_GET["ruta"] == "editar-venta" ||
-        $_GET["ruta"] == "reportes" ||
-        $_GET["ruta"] == "salir"){
+      // <!-- Content Wrapper. Contains page content -->
+      if(isset($_GET["ruta"])){
+        if($_GET["ruta"] == "inicio" ||
+          $_GET["ruta"] == "usuarios" ||
+          $_GET["ruta"] == "categorias" ||
+          $_GET["ruta"] == "productos" ||
+          $_GET["ruta"] == "clientes" ||
+          $_GET["ruta"] == "ventas" ||
+          $_GET["ruta"] == "crear-venta" ||
+          $_GET["ruta"] == "editar-venta" ||
+          $_GET["ruta"] == "reportes" ||
+          $_GET["ruta"] == "salir"){
 
-        include __DIR__ . "/../modulos/".$_GET["ruta"].".php";
+          include __DIR__ . "/../modulos/".$_GET["ruta"].".php";
+        }else{
+          include __DIR__ . "/../modulos/404.php";
+        }
       }else{
-        include __DIR__ . "/../modulos/404.php";
+        include __DIR__ . "/../modulos/inicio.php";
       }
+      // <!-- /.content-wrapper -->
+
+      // Footer
+      include "footer.php";
+
+      echo '</div>';
+      // <!-- ./wrapper -->
     }else{
-      include __DIR__ . "/../modulos/inicio.php";
+      include __DIR__ . "/../modulos/login.php";
     }
-    // <!-- /.content-wrapper -->
-
-    // Footer
-    include "footer.php";
-
-    echo '</div>';
-    // <!-- ./wrapper -->
-  }else{
-    include __DIR__ . "/../modulos/login.php";
-  }
   ?>
 
   <!-- Control Sidebar -->
