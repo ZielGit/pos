@@ -1,10 +1,10 @@
 <?php
-if($_SESSION["perfil"] == "Especial"){
-  echo '<script>
-    window.location = "inicio";
-  </script>';
-  return;
-}
+  if($_SESSION["perfil"] == "Especial"){
+    echo '<script>
+      window.location = "inicio";
+    </script>';
+    return;
+  }
 ?>
 
 <div class="content-wrapper">
@@ -139,7 +139,7 @@ if($_SESSION["perfil"] == "Especial"){
                           <span class="input-group-text"><i class="far fa-credit-card"></i></span>
                         </div>
                         <select class="form-control" name="nuevoMetodoPago" id="nuevoMetodoPago" required>
-                          <option value="">Selecione método de pago</option>
+                          <option value="" selected disabled>Selecione método de pago</option>
                           <option value="Efectivo">Efectivo</option>
                           <option value="TC">Tarjeta de crédito</option>
                           <option value="TD">Tarjeta de Débito</option>

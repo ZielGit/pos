@@ -1,10 +1,10 @@
 <?php
-if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
-  echo '<script>
-    window.location = "inicio";
-  </script>';
-  return;
-}
+  if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
+    echo '<script>
+      window.location = "inicio";
+    </script>';
+    return;
+  }
 ?>
 
 <div class="content-wrapper">
@@ -79,7 +79,6 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
               ?>
             </tbody>
           </table>
-
         </div>
         <!-- /.card-body -->
       </div>
@@ -127,7 +126,7 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
               <span class="input-group-text"><i class="fa fa-users"></i></span>
             </div>
             <select class="form-control" name="nuevoPerfil" id="">
-              <option value="">Selecionar Perfil</option>
+              <option value="" selected disabled>Selecionar Perfil</option>
               <option value="Administrador">Administrador</option>
               <option value="Especial">Especial</option>
               <option value="Vendedor">Vendedor</option>
@@ -196,7 +195,7 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
               <span class="input-group-text"><i class="fa fa-users"></i></span>
             </div>
             <select class="form-control" name="editarPerfil" id="">
-              <option value="" id="editarPerfil"></option>
+              <option value="" id="editarPerfil" selected disabled></option>
               <option value="Administrador">Administrador</option>
               <option value="Especial">Especial</option>
               <option value="Vendedor">Vendedor</option>

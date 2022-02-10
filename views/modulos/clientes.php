@@ -1,10 +1,10 @@
 <?php
-if($_SESSION["perfil"] == "Especial"){
-  echo '<script>
-    window.location = "inicio";
-  </script>';
-  return;
-}
+  if($_SESSION["perfil"] == "Especial"){
+    echo '<script>
+      window.location = "inicio";
+    </script>';
+    return;
+  }
 ?>
 
 <div class="content-wrapper">
@@ -126,7 +126,7 @@ if($_SESSION["perfil"] == "Especial"){
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-phone"></i></span>
             </div>
-            <input type="text" class="form-control" name="nuevoTelefono" data-inputmask="'mask': ['999-999-999 [x99999]', '+099 999 999[9]-999']" data-mask placeholder="Ingresar telefono" required>
+            <input type="text" class="form-control" name="nuevoTelefono" data-inputmask="'mask': ['999-999-999', '+099 999 999-999']" data-mask placeholder="Ingresar telefono" required>
           </div>
           
           <div class="input-group mb-3">
