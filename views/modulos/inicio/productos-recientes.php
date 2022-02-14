@@ -23,8 +23,8 @@ $productos = ProductController::MostrarProductos($item, $valor, $orden);
                                 <img src="'.$productos[$i]["imagen"].'" alt="Product Image" class="img-size-50">
                             </div>
                             <div class="product-info">
-                                <a href="" class="product-title">'.$productos[$i]["descripcion"].'
-                                    <span class="badge badge-warning float-right">$'.$productos[$i]["precio_venta"].'</span>
+                                <a class="product-title">'.$productos[$i]["descripcion"].'
+                                    <span class="badge badge-warning float-right">S/. '.$productos[$i]["precio_venta"].'</span>
                                 </a>
                                 <span class="product-description">
                                 </span>

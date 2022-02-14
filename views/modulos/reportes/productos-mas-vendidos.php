@@ -39,15 +39,15 @@
         <ul class="nav nav-pills flex-column">
             <?php
                 for($i = 0; $i <5; $i++){
-                echo '<li class="nav-item">
-                    <a class="nav-link">
-                        <img src="'.$productos[$i]["imagen"].'" class="img-thumbnail" width="60px" style="margin-right:10px"> 
-                        '.$productos[$i]["descripcion"].'
-                        <span class="float-right text-'.$colores[$i].'">   
-                            '.ceil($productos[$i]["ventas"]*100/$totalVentas["total"]).'%
-                        </span>
-                    </a>
-                </li>';
+                    echo '<li class="nav-item">
+                        <a class="nav-link">
+                            <img src="'.$productos[$i]["imagen"].'" class="img-thumbnail" width="60px" style="margin-right:10px"> 
+                            '.$productos[$i]["descripcion"].'
+                            <span class="float-right text-'.$colores[$i].'">   
+                                '.ceil($productos[$i]["ventas"]*100/$totalVentas["total"]).'%
+                            </span>
+                        </a>
+                    </li>';
                 }
             ?>
         </ul>
