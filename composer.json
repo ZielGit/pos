@@ -1,0 +1,7 @@
+{
+    "name": "pos/pos",
+    "type": "project",
+    "require-dev": {
+        "maximebf/debugbar": "^1.19"
+    }
+}

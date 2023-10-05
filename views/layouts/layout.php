@@ -1,5 +1,16 @@
 <?php
-	session_start();
+
+session_start();
+
+require 'vendor/autoload.php';
+
+use DebugBar\StandardDebugBar;
+
+$debugbar = new StandardDebugBar();
+$debugbarRenderer = $debugbar->getJavascriptRenderer();
+
+$debugbar["messages"]->addMessage("hello world!");
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +41,7 @@
 
 		<!-- Plugins -->
 		<!-- jQuery -->
-        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 		<!-- Bootstrap 4 -->
 		<script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- Select2 -->
@@ -65,6 +76,8 @@
 		<script src="public/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 		<!-- JsBarcode 3.11.5 -->
 		<script src="public/plugins/JsBarcode/JsBarcode.all.min.js"></script>
+
+		<?php echo $debugbarRenderer->renderHead() ?>
 	</head>
 	<body class="hold-transition sidebar-mini">
 		<?php
@@ -153,5 +166,7 @@
 				}
 			});
 		</script>
+
+		<?php echo $debugbarRenderer->render() ?>
 	</body>
 </html>
