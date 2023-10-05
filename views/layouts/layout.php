@@ -30,7 +30,7 @@
 
 		<!-- Plugins -->
 		<!-- jQuery -->
-		<script src="public/plugins/jquery/jquery.min.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 		<!-- Bootstrap 4 -->
 		<script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- Select2 -->
