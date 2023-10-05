@@ -24,7 +24,7 @@
 		<link rel="stylesheet" href="public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 		<link rel="stylesheet" href="public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 		<!-- Select2 -->
-		<link rel="stylesheet" href="public/plugins/select2/css/select2.min.css">
+		<link rel="stylesheet" href="../node_modules/select2/dist/css/select2.min.css">
 		<!-- Theme style -->
 		<link rel="stylesheet" href="public/dist/css/adminlte.css">
 
@@ -34,7 +34,7 @@
 		<!-- Bootstrap 4 -->
 		<script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- Select2 -->
-		<script src="public/plugins/select2/js/select2.full.min.js"></script>
+		<script src="../node_modules/select2/dist/js/select2.min.js"></script>
 		<!-- InputMask -->
 		<script src="public/plugins/moment/moment.min.js"></script>
 		<script src="public/plugins/inputmask/jquery.inputmask.min.js"></script>
