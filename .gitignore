@@ -1,3 +1,5 @@
 /node_modules
+/public/dist/img
+/public/img
 /vendor
-img
+.env
