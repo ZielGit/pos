@@ -1,16 +1,22 @@
 <?php
 
-class SaleController{
+namespace Controllers;
 
-    // MostrarVentas
-    static public function MostrarVentas($item, $valor){
+use Models\Client;
+use Models\Product;
+use Models\Sale;
+
+class SaleController
+{
+	public static function MostrarVentas($item, $valor)
+	{
 		$tabla = "ventas";
 		$respuesta = Sale::MostrarVentas($tabla, $item, $valor);
 		return $respuesta;
 	}
 
-	// Crear Venta
-	static public function CrearVenta(){
+	public static function CrearVenta()
+	{
 		if (isset($_POST["nuevaVenta"])) {
 			// Actualizar las compras del cliente, reducir el stock y aumentar las ventas de los productos 
 			$listaProductos = json_decode($_POST["listaProductos"], true);
@@ -42,19 +48,19 @@ class SaleController{
 			date_default_timezone_set('America/Lima');
 			$fecha = date('Y-m-d');
 			$hora = date('H:i:s');
-			$valor1b = $fecha.' '.$hora;
+			$valor1b = $fecha . ' ' . $hora;
 			$fechaCliente = Client::ActualizarCliente($tablaClientes, $item1b, $valor1b, $valor);
 			// Guardar la venta
 			$tabla = "ventas";
 			$datos = array(
-				"id_vendedor"	=>$_POST["idVendedor"],
-				"id_cliente"	=>$_POST["seleccionarCliente"],
-				"codigo"		=>$_POST["nuevaVenta"],
-				"productos"		=>$_POST["listaProductos"],
-				"impuesto"		=>$_POST["nuevoPrecioImpuesto"],
-				"neto"			=>$_POST["nuevoPrecioNeto"],
-				"total"			=>$_POST["totalVenta"],
-				"metodo_pago"	=>$_POST["listaMetodoPago"]
+				"id_vendedor"	=> $_POST["idVendedor"],
+				"id_cliente"	=> $_POST["seleccionarCliente"],
+				"codigo"		=> $_POST["nuevaVenta"],
+				"productos"		=> $_POST["listaProductos"],
+				"impuesto"		=> $_POST["nuevoPrecioImpuesto"],
+				"neto"			=> $_POST["nuevoPrecioNeto"],
+				"total"			=> $_POST["totalVenta"],
+				"metodo_pago"	=> $_POST["listaMetodoPago"]
 			);
 			$respuesta = Sale::IngresarVenta($tabla, $datos);
 			if ($respuesta == "ok") {
@@ -75,8 +81,8 @@ class SaleController{
 		}
 	}
 
-	// Editar Venta
-	static public function EditarVenta(){
+	public static function EditarVenta()
+	{
 		if (isset($_POST["editarVenta"])) {
 			// Formatear tabla de productos y la de clientes
 			$tabla = "ventas";
@@ -84,10 +90,10 @@ class SaleController{
 			$valor = $_POST["editarVenta"];
 			$traerVenta = Sale::MostrarVentas($tabla, $item, $valor);
 			// Revisar si viene productos editados
-			if($_POST["listaProductos"] == ""){
+			if ($_POST["listaProductos"] == "") {
 				$listaProductos = $traerVenta["productos"];
 				$cambioProducto = false;
-			}else{
+			} else {
 				$listaProductos = $_POST["listaProductos"];
 				$cambioProducto = true;
 			}
@@ -144,19 +150,19 @@ class SaleController{
 				date_default_timezone_set('America/Lima');
 				$fecha = date('Y-m-d');
 				$hora = date('H:i:s');
-				$valor1b_2 = $fecha.' '.$hora;
+				$valor1b_2 = $fecha . ' ' . $hora;
 				$fechaCliente_2 = Client::ActualizarCliente($tablaClientes_2, $item1b_2, $valor1b_2, $valor_2);
-				
+
 				// Guardar cambios de la compra
 				$datos = array(
-					"id_vendedor"	=>$_POST["idVendedor"],
-					"id_cliente"	=>$_POST["seleccionarCliente"],
-					"codigo"		=>$_POST["editarVenta"],
-					"productos"		=>$listaProductos,
-					"impuesto"		=>$_POST["nuevoPrecioImpuesto"],
-					"neto"			=>$_POST["nuevoPrecioNeto"],
-					"total"			=>$_POST["totalVenta"],
-					"metodo_pago"	=>$_POST["listaMetodoPago"]
+					"id_vendedor"	=> $_POST["idVendedor"],
+					"id_cliente"	=> $_POST["seleccionarCliente"],
+					"codigo"		=> $_POST["editarVenta"],
+					"productos"		=> $listaProductos,
+					"impuesto"		=> $_POST["nuevoPrecioImpuesto"],
+					"neto"			=> $_POST["nuevoPrecioNeto"],
+					"total"			=> $_POST["totalVenta"],
+					"metodo_pago"	=> $_POST["listaMetodoPago"]
 				);
 				$respuesta = Sale::EditarVenta($tabla, $datos);
 				if ($respuesta == "ok") {
@@ -178,8 +184,8 @@ class SaleController{
 		}
 	}
 
-	// Eliminar Venta
-	static public function EliminarVenta(){
+	public static function EliminarVenta()
+	{
 		if (isset($_GET["idVenta"])) {
 			$tabla = "ventas";
 			$item = "id";
@@ -192,23 +198,23 @@ class SaleController{
 			$traerVentas = Sale::MostrarVentas($tabla, $itemVentas, $valorVentas);
 			$guardarFechas = array();
 			foreach ($traerVentas as $key => $value) {
-				if($value["id_cliente"] == $traerVenta["id_cliente"]){
+				if ($value["id_cliente"] == $traerVenta["id_cliente"]) {
 					array_push($guardarFechas, $value["fecha"]);
 				}
 			}
-			if(count($guardarFechas) > 1){
-				if($traerVenta["fecha"] > $guardarFechas[count($guardarFechas)-2]){
+			if (count($guardarFechas) > 1) {
+				if ($traerVenta["fecha"] > $guardarFechas[count($guardarFechas) - 2]) {
 					$item = "ultima_compra";
-					$valor = $guardarFechas[count($guardarFechas)-2];
+					$valor = $guardarFechas[count($guardarFechas) - 2];
 					$valorIdCliente = $traerVenta["id_cliente"];
 					$comprasCliente = Client::ActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
-				}else{
+				} else {
 					$item = "ultima_compra";
-					$valor = $guardarFechas[count($guardarFechas)-1];
+					$valor = $guardarFechas[count($guardarFechas) - 1];
 					$valorIdCliente = $traerVenta["id_cliente"];
 					$comprasCliente = Client::ActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
 				}
-			}else{
+			} else {
 				$item = "ultima_compra";
 				$valor = "0000-00-00 00:00:00";
 				$valorIdCliente = $traerVenta["id_cliente"];
@@ -223,7 +229,7 @@ class SaleController{
 				$item = "id";
 				$valor = $value["id"];
 				$orden = "id";
-				$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor,$orden);
+				$traerProducto = Product::MostrarProductos($tablaProductos, $item, $valor, $orden);
 				$item1a = "ventas";
 				$valor1a = $traerProducto["ventas"] - $value["cantidad"];
 				$nuevasVentas = Product::ActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
@@ -238,7 +244,7 @@ class SaleController{
 			$item1a = "compras";
 			$valor1a = $traerCliente["compras"] - array_sum($totalProductosComprados);
 			$comprasCliente = Client::ActualizarCliente($tablaClientes, $item1a, $valor1a, $valorCliente);
-			
+
 			// Eliminar Venta
 			$respuesta = Sale::EliminarVenta($tabla, $_GET["idVenta"]);
 			if ($respuesta == "ok") {
@@ -258,35 +264,35 @@ class SaleController{
 		}
 	}
 
-	// Rango de Fechas
-	static public function RangoFechasVentas($fechaInicial, $fechaFinal){
+	public static function RangoFechasVentas($fechaInicial, $fechaFinal)
+	{
 		$tabla = "ventas";
 		$respuesta = Sale::RangoFechasVentas($tabla, $fechaInicial, $fechaFinal);
 		return $respuesta;
 	}
 
-	// Descargar Excel
-	public function DescargarReporte(){
+	public function DescargarReporte()
+	{
 		if (isset($_GET["reporte"])) {
 			$tabla = "ventas";
-			if(isset($_GET["fechaInicial"]) && isset($_GET["fechaFinal"])){
+			if (isset($_GET["fechaInicial"]) && isset($_GET["fechaFinal"])) {
 				$ventas = Sale::RangoFechasVentas($tabla, $_GET["fechaInicial"], $_GET["fechaFinal"]);
-			}else{
+			} else {
 				$item = null;
 				$valor = null;
 				$ventas = Sale::MostrarVentas($tabla, $item, $valor);
 			}
 
 			// Creamos el archivo de excel
-			$Name = $_GET["reporte"].'.xls';
+			$Name = $_GET["reporte"] . '.xls';
 			header('Expires: 0');
 			header('Cache-control: private');
 			header("Content-type: application/vnd.ms-excel"); // Archivo de Excel
-			header("Cache-Control: cache, must-revalidate"); 
+			header("Cache-Control: cache, must-revalidate");
 			header('Content-Description: File Transfer');
-			header('Last-Modified: '.date('D, d M Y H:i:s'));
-			header("Pragma: public"); 
-			header('Content-Disposition:; filename="'.$Name.'"');
+			header('Last-Modified: ' . date('D, d M Y H:i:s'));
+			header("Pragma: public");
+			header('Content-Disposition:; filename="' . $Name . '"');
 			header("Content-Transfer-Encoding: binary");
 			echo utf8_decode(
 				"<table border='0'> 
@@ -303,31 +309,31 @@ class SaleController{
 				<td style='font-weight:bold; border:1px solid #eee;'>FECHA</td>		
 				</tr>"
 			);
-			foreach ($ventas as $row => $item){
+			foreach ($ventas as $row => $item) {
 				$cliente = ClientController::MostrarClientes("id", $item["id_cliente"]);
 				$vendedor = UserController::MostrarUsuario("id", $item["id_vendedor"]);
-			 	echo utf8_decode(
+				echo utf8_decode(
 					"<tr>
-			 		<td style='border:1px solid #eee;'>".$item["codigo"]."</td> 
-			 		<td style='border:1px solid #eee;'>".$cliente["nombre"]."</td>
-			 		<td style='border:1px solid #eee;'>".$vendedor["nombre"]."</td>
+			 		<td style='border:1px solid #eee;'>" . $item["codigo"] . "</td> 
+			 		<td style='border:1px solid #eee;'>" . $cliente["nombre"] . "</td>
+			 		<td style='border:1px solid #eee;'>" . $vendedor["nombre"] . "</td>
 			 		<td style='border:1px solid #eee;'>"
 				);
-			 	$productos =  json_decode($item["productos"], true);
-			 	foreach ($productos as $key => $valueProductos) {	
-			 			echo utf8_decode($valueProductos["cantidad"]."<br>");
-			 	}
-			 	echo utf8_decode("</td><td style='border:1px solid #eee;'>");	
-		 		foreach ($productos as $key => $valueProductos) {	
-		 			echo utf8_decode($valueProductos["descripcion"]."<br>");
-		 		}
-		 		echo utf8_decode(
+				$productos =  json_decode($item["productos"], true);
+				foreach ($productos as $key => $valueProductos) {
+					echo utf8_decode($valueProductos["cantidad"] . "<br>");
+				}
+				echo utf8_decode("</td><td style='border:1px solid #eee;'>");
+				foreach ($productos as $key => $valueProductos) {
+					echo utf8_decode($valueProductos["descripcion"] . "<br>");
+				}
+				echo utf8_decode(
 					"</td>
-					<td style='border:1px solid #eee;'>$ ".number_format($item["impuesto"],2)."</td>
-					<td style='border:1px solid #eee;'>$ ".number_format($item["neto"],2)."</td>	
-					<td style='border:1px solid #eee;'>$ ".number_format($item["total"],2)."</td>
-					<td style='border:1px solid #eee;'>".$item["metodo_pago"]."</td>
-					<td style='border:1px solid #eee;'>".substr($item["fecha"],0,10)."</td>		
+					<td style='border:1px solid #eee;'>$ " . number_format($item["impuesto"], 2) . "</td>
+					<td style='border:1px solid #eee;'>$ " . number_format($item["neto"], 2) . "</td>	
+					<td style='border:1px solid #eee;'>$ " . number_format($item["total"], 2) . "</td>
+					<td style='border:1px solid #eee;'>" . $item["metodo_pago"] . "</td>
+					<td style='border:1px solid #eee;'>" . substr($item["fecha"], 0, 10) . "</td>		
 		 			</tr>"
 				);
 			}
@@ -335,8 +341,8 @@ class SaleController{
 		}
 	}
 
-	// Suma Total de Ventas
-	static public function SumaTotalVentas(){
+	public static function SumaTotalVentas()
+	{
 		$tabla = "ventas";
 		$respuesta = Sale::SumaTotalVentas($tabla);
 		return $respuesta;

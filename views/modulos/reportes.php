@@ -1,10 +1,12 @@
 <?php
+
 if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
   echo '<script>
     window.location = "inicio";
   </script>';
   return;
 }
+
 ?>
 
 <div class="content-wrapper">

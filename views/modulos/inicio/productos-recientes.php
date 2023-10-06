@@ -1,5 +1,7 @@
 <?php
 
+use Controllers\ProductController;
+
 $item = null;
 $valor = null;
 $orden = "id";

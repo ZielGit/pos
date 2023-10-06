@@ -6,5 +6,11 @@
     },
     "require-dev": {
         "maximebf/debugbar": "^1.19"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\":"Controllers/",
+            "Models\\":"Models/"
+        }
     }
 }

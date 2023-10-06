@@ -1,3 +1,8 @@
+<?php
+
+use Controllers\UserController;
+
+?>
 <div class="login-page">
   <div class="login-box">
     <!-- /.login-logo -->

@@ -1,10 +1,15 @@
 <?php
-  if($_SESSION["perfil"] == "Especial"){
-    echo '<script>
-      window.location = "inicio";
-    </script>';
-    return;
-  }
+
+use Controllers\ClientController;
+use Controllers\SaleController;
+
+if($_SESSION["perfil"] == "Especial"){
+  echo '<script>
+    window.location = "inicio";
+  </script>';
+  return;
+}
+
 ?>
 
 <div class="content-wrapper">

@@ -1,5 +1,10 @@
 <?php
 
+use Controllers\CategoryController;
+use Controllers\ClientController;
+use Controllers\ProductController;
+use Controllers\SaleController;
+
 $item = null;
 $valor = null;
 $orden = "id";

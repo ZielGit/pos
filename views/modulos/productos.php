@@ -1,10 +1,15 @@
 <?php
-  if($_SESSION["perfil"] == "Vendedor"){
-    echo '<script>
-      window.location = "inicio";
-    </script>';
-    return;
-  }
+
+use Controllers\CategoryController;
+use Controllers\ProductController;
+
+if($_SESSION["perfil"] == "Vendedor"){
+  echo '<script>
+    window.location = "inicio";
+  </script>';
+  return;
+}
+
 ?>
 
 <div class="content-wrapper">

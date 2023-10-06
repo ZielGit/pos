@@ -1,5 +1,9 @@
 <?php
 
+namespace Models;
+
+use PDO;
+
 class Conexion
 {
     public static function conectar()

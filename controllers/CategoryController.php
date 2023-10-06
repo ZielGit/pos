@@ -1,9 +1,13 @@
 <?php
 
-class CategoryController{
+namespace Controllers;
 
-    // Crear Categoría
-    static public function CrearCategoria(){
+use Models\Category;
+
+class CategoryController
+{
+    public static function CrearCategoria()
+    {
         if (isset($_POST["nuevaCategoria"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóÁÉÍÓÚ]+$/', $_POST["nuevaCategoria"])) {
                 $tabla = "categorias";
@@ -23,7 +27,7 @@ class CategoryController{
                         });
 					</script>';
                 }
-            }else {
+            } else {
                 echo '<script>
                     Swal.fire({
                         icon: "error",
@@ -39,19 +43,19 @@ class CategoryController{
         }
     }
 
-    // Mostrar Categorias
-    static public function MostrarCategorias($item, $valor){
+    public static function MostrarCategorias($item, $valor)
+    {
         $tabla = "categorias";
         $respuesta = Category::MostrarCategorias($tabla, $item, $valor);
         return $respuesta;
     }
 
-    // Editar Categoría
-    static public function EditarCategoria(){
+    public static function EditarCategoria()
+    {
         if (isset($_POST["editarCategoria"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóÁÉÍÓÚ]+$/', $_POST["editarCategoria"])) {
                 $tabla = "categorias";
-                $datos = array("categoria"=>$_POST["editarCategoria"], "id"=>$_POST["idCategoria"]);
+                $datos = array("categoria" => $_POST["editarCategoria"], "id" => $_POST["idCategoria"]);
                 $respuesta = Category::EditarCategoria($tabla, $datos);
                 if ($respuesta == "ok") {
                     echo '<script>
@@ -67,7 +71,7 @@ class CategoryController{
                         });
 					</script>';
                 }
-            }else {
+            } else {
                 echo '<script>
                     Swal.fire({
                         icon: "error",
@@ -83,8 +87,8 @@ class CategoryController{
         }
     }
 
-    // Borrar Categoría
-    static public function BorrarCategoria(){
+    public static function BorrarCategoria()
+    {
         if (isset($_GET["idCategoria"])) {
             $tabla = "categorias";
             $datos = $_GET["idCategoria"];

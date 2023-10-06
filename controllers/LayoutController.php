@@ -1,8 +1,11 @@
 <?php
 
-class LayoutController{
+namespace Controllers;
 
-    static public function Layout(){
+class LayoutController
+{
+    public static function Layout()
+    {
         include "views/layouts/layout.php";
     }
 }

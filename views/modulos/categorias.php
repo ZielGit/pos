@@ -1,10 +1,14 @@
 <?php
+
+use Controllers\CategoryController;
+
 if($_SESSION["perfil"] == "Especial"){
   echo '<script>
     window.location = "inicio";
   </script>';
   return;
 }
+
 ?>
 
 <div class="content-wrapper">

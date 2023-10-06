@@ -1,4 +1,7 @@
 <?php
+
+use Controllers\ClientController;
+
   if($_SESSION["perfil"] == "Especial"){
     echo '<script>
       window.location = "inicio";
